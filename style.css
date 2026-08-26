@@ -1,0 +1,537 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07070a;
+    color: white;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(7, 7, 10, 0.85);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #222;
+}
+
+.navbar {
+    max-width: 1200px;
+    height: 75px;
+
+    margin: auto;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 10;
+
+    background: rgba(10, 10, 18, 0.75);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 15px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 0 25px rgba(124, 60, 255, 0.12);
+}
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(124, 60, 255, 0.9);
+}
+.logo span {
+    color: #7c3cff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #a855f7;
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+    transform: translateY(-2px);
+}
+.menu-btn {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: white;
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #3b157a 0%,
+            #160b2e 35%,
+            #07070a 70%
+        );
+
+    background-size: 150% 150%;
+
+    animation: gamingGlow 8s ease-in-out infinite;
+}
+@keyframes gamingGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.hero-content {
+    max-width: 850px;
+}
+
+.small-title,
+.section-small {
+    color: #9b6cff;
+
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 110px)
+    line-height: 0.9;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span,
+h2 span {
+    color: #8b5cf6;
+}
+
+.hero-text {
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #aaa;
+
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 15px 28px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: #7c3cff;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #9b6cff;
+
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    border: 1px solid #555;
+    color: white;
+}
+
+.secondary-btn:hover {
+    border-color: #9b6cff;
+}
+
+
+/* =========================
+   GAMES
+========================= */
+
+.games-section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 110px 25px;
+}
+
+.games-section h2,
+.about h2 {
+    font-size: 50px;
+
+    margin-bottom: 45px;
+}
+
+.game-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.game-card {
+    background: #111116;
+
+    border: 1px solid #25252d;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.game-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: #8b5cf6;
+    box-shadow: 0 20px 60px rgba(124, 60, 255, 0.35);
+}
+   .game-image {
+    height: 230px;
+    overflow: hidden;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+.game-card:hover .game-image img {
+    transform: scale(1.08);
+}
+.game1 {
+    background:
+        linear-gradient(
+            135deg,
+            #291052,
+            #111
+        );
+}
+
+.game2 {
+    background:
+        linear-gradient(
+            135deg,
+            #521019,
+            #111
+        );
+}
+
+.game3 {
+    background:
+        linear-gradient(
+            135deg,
+            #102e52,
+            #111
+        );
+}
+
+.game-info {
+    padding: 25px;
+}
+
+.game-info h3 {
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+.game-info p {
+    color: #888;
+}
+
+.rating {
+    margin: 20px 0;
+}
+
+.game-info button {
+    width: 100%;
+
+    padding: 13px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #555;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.game-info 
+button:hover {
+    background: #7c3cff;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(124, 60, 255, 0.7);
+}
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 120px 25px;
+
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 45px;
+}
+
+.about > p:last-child {
+    color: #999;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #666;
+
+    border-top: 1px solid #222;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .game-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .games-section h2,
+    .about h2 {
+        font-size: 35px;
+    }
+}
+/* =========================
+   GAME DETAILS PAGE
+========================= */
+
+.game-details {
+    max-width: 1200px;
+    min-height: 75vh;
+    margin: 80px auto;
+    padding: 50px 25px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+
+    align-items: center;
+}
+
+.details-image {
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+
+    box-shadow:
+        0 0 40px rgba(124, 60, 255, 0.2);
+}
+
+.details-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.details-content h1 {
+    font-size: 60px;
+    margin: 15px 0;
+}
+
+.details-content h1 span {
+    color: #8b5cf6;
+}
+
+.details-rating {
+    font-size: 22px;
+    margin: 25px 0;
+}
+
+.details-content > p {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.game-info-list {
+    margin: 30px 0;
+}
+
+.game-info-list p {
+    color: #ccc;
+    margin: 12px 0;
+}
+
+.game-info-list strong {
+    color: white;
+}
+
+.back-button {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+
+    border: 1px solid #7c3cff;
+    border-radius: 8px;
+
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #7c3cff;
+    box-shadow: 0 0 20px rgba(124, 60, 255, 0.6);
+}
+
+.details-content button {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+
+    background: #7c3cff;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.details-content button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(124, 60, 255, 0.8);
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+
+    .game-details {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 40px auto;
+    }
+
+    .details-image img {
+        height: 350px;
+    }
+
+    .details-content h1 {
+        font-size: 42px;
+    }
+}
