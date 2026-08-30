@@ -985,3 +985,106 @@ footer {
     }
 
 }
+/* =========================
+   MENU BUTTON - ALL DEVICES
+========================= */
+
+.menu-btn {
+    display: block;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+.menu-btn:hover {
+    color: #9b6cff;
+}
+
+
+/* =========================
+   DROPDOWN MENU - ALL DEVICES
+========================= */
+
+.navbar {
+    position: relative;
+}
+
+.nav-links {
+    display: none;
+
+    position: absolute;
+    top: 85px;
+    right: 15px;
+
+    width: 220px;
+
+    padding: 20px;
+
+    flex-direction: column;
+    gap: 10px;
+
+    background: rgba(10, 10, 18, 0.97);
+
+    border: 1px solid #333;
+    border-radius: 12px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+
+    list-style: none;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    display: block;
+
+    padding: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: #7c3cff;
+    color: white;
+}
+
+
+/* Remove old desktop menu behavior */
+
+@media (min-width: 801px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        top: 75px;
+        right: 10px;
+    }
+
+}
