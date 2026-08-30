@@ -1,14 +1,5 @@
-function showMessage(game) {
-    alert("You selected: " + game);
-}
-
 function toggleMenu() {
-    const menu = document.querySelector(".nav-links");
+    const navLinks = document.querySelector(".nav-links");
 
-    if (menu.style.display === "flex") {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "flex";
-        menu.style.flexDirection = "column";
-    }
+    navLinks.classList.toggle("active");
 }
