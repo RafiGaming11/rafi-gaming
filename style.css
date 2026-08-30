@@ -929,3 +929,59 @@ footer {
     }
 
 }
+/* =========================
+   MOBILE MENU FIX
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+        top: 80px;
+        right: 15px;
+
+        width: 220px;
+
+        padding: 20px;
+
+        flex-direction: column;
+        gap: 18px;
+
+        background: rgba(10, 10, 18, 0.97);
+
+        border: 1px solid #333;
+        border-radius: 12px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        list-style: none;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 10px;
+
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 8px;
+
+        transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background: #7c3cff;
+        color: white;
+    }
+
+}
