@@ -1259,3 +1259,360 @@ footer {
     }
 
 }
+/* =========================================
+   RAFI GAMING - PREMIUM ANIMATIONS
+   ========================================= */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* PAGE LOAD */
+body {
+    animation: pageFade 0.7s ease;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* NAVBAR */
+.navbar {
+    transition: 0.3s ease;
+}
+
+.logo {
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.04);
+}
+
+
+/* NAV LINKS */
+.nav-links li {
+    transition: transform 0.25s ease;
+}
+
+.nav-links li:hover {
+    transform: translateY(-2px);
+}
+
+.nav-links a {
+    transition: color 0.25s ease;
+}
+
+
+/* MENU BUTTON */
+.menu-btn {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   GAME CARDS
+   ========================================= */
+
+.game-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+    animation: cardAppear 0.7s ease both;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(139, 92, 246, 0.18);
+
+    border-color: rgba(139, 92, 246, 0.6);
+}
+
+
+/* Cards appear one after another */
+.game-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.game-card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.game-card:nth-child(3) {
+    animation-delay: 0.19s;
+}
+
+.game-card:nth-child(4) {
+    animation-delay: 0.26s;
+}
+
+.game-card:nth-child(5) {
+    animation-delay: 0.33s;
+}
+
+.game-card:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* GAME IMAGES */
+.game-image {
+    overflow: hidden;
+}
+
+.game-image img {
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.06);
+    filter: brightness(1.08);
+}
+
+
+/* GAME CARD BUTTON */
+.game-card button {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.game-card button:hover {
+    transform: translateY(-2px);
+
+    background: #8b5cf6;
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 8px 22px rgba(139, 92, 246, 0.3);
+}
+
+
+/* =========================================
+   FILTER BUTTONS
+   ========================================= */
+
+.filter-btn {
+    transition:
+        transform 0.2s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    box-shadow:
+        0 6px 20px rgba(139, 92, 246, 0.3);
+}
+
+
+/* =========================================
+   SEARCH BAR
+   ========================================= */
+
+.game-search input {
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.game-search input:focus {
+    outline: none;
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.12),
+        0 0 25px rgba(139, 92, 246, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   GAME DETAILS PAGE
+   ========================================= */
+
+.details-image {
+    animation: imageReveal 0.8s ease;
+}
+
+@keyframes imageReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.details-image img {
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+
+.details-image:hover img {
+    transform: scale(1.025);
+}
+
+
+/* DETAILS CONTENT */
+.details-content {
+    animation: detailsReveal 0.8s ease 0.15s both;
+}
+
+@keyframes detailsReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* BACK BUTTON */
+.back-button {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+
+    background: #8b5cf6;
+
+    box-shadow:
+        0 8px 25px rgba(139, 92, 246, 0.25);
+}
+
+
+/* PLAY BUTTON */
+.play-button {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.play-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(139, 92, 246, 0.35);
+}
+
+
+/* RATING */
+.details-rating {
+    animation: ratingAppear 0.8s ease 0.35s both;
+}
+
+@keyframes ratingAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+   ========================================= */
+
+.section-small {
+    animation: smallTitle 0.7s ease;
+}
+
+@keyframes smallTitle {
+    from {
+        opacity: 0;
+        letter-spacing: 8px;
+    }
+
+    to {
+        opacity: 1;
+        letter-spacing: normal;
+    }
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    transition: background 0.3s ease;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .game-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .details-image:hover img {
+        transform: none;
+    }
+
+}
