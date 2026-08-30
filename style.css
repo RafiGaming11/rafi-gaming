@@ -156,6 +156,7 @@ header {
 
 .hero h1 {
     font-size: clamp(50px, 8vw, 110px);
+
     line-height: 0.9;
 
     margin-bottom: 30px;
@@ -174,6 +175,7 @@ h2 span {
     color: #aaa;
 
     font-size: 18px;
+
     line-height: 1.7;
 }
 
@@ -181,6 +183,7 @@ h2 span {
     margin-top: 35px;
 
     display: flex;
+
     justify-content: center;
 
     gap: 15px;
@@ -201,21 +204,28 @@ h2 span {
 
 .primary-btn {
     background: #7c3cff;
+
     color: white;
 }
 
 .primary-btn:hover {
     background: #9b6cff;
+
     transform: translateY(-3px);
+
+    box-shadow: 0 0 25px rgba(124, 60, 255, 0.6);
 }
 
 .secondary-btn {
     border: 1px solid #555;
+
     color: white;
 }
 
 .secondary-btn:hover {
     border-color: #9b6cff;
+
+    transform: translateY(-3px);
 }
 
 
@@ -251,11 +261,13 @@ h2 span {
 
     border: 1px solid #25252d;
 
-    border-radius: 12px;
+    border-radius: 14px;
 
     overflow: hidden;
 
     transition: 0.4s;
+
+    position: relative;
 }
 
 .game-card:hover {
@@ -269,11 +281,32 @@ h2 span {
 
 .game-image {
     height: 230px;
+
     overflow: hidden;
+
+    position: relative;
+}
+
+.game-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(7, 7, 10, 0.5),
+            transparent 50%
+        );
+
+    pointer-events: none;
 }
 
 .game-image img {
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
@@ -314,6 +347,31 @@ h2 span {
         );
 }
 
+
+/* GAME TAG */
+
+.game-tag {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    margin-bottom: 12px;
+
+    background: rgba(124, 60, 255, 0.15);
+
+    border: 1px solid rgba(139, 92, 246, 0.5);
+
+    border-radius: 20px;
+
+    color: #b794ff;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
 .game-info {
     padding: 25px;
 }
@@ -330,6 +388,8 @@ h2 span {
 
 .rating {
     margin: 20px 0;
+
+    color: #ddd;
 }
 
 .game-info button {
@@ -544,8 +604,6 @@ footer {
         padding: 0 15px;
     }
 
-    /* Mobile menu */
-
     .nav-links {
         display: none;
 
@@ -592,7 +650,7 @@ footer {
     }
 
 
-    /* Hero */
+    /* HERO */
 
     .hero {
         padding: 100px 15px 60px;
@@ -622,10 +680,15 @@ footer {
     }
 
 
-    /* Games */
+    /* GAMES */
 
     .games-section {
         padding: 80px 15px;
+    }
+
+    .games-section h2,
+    .about h2 {
+        font-size: 35px;
     }
 
     .game-container {
@@ -636,13 +699,8 @@ footer {
         padding: 20px;
     }
 
-    .games-section h2,
-    .about h2 {
-        font-size: 35px;
-    }
 
-
-    /* Game details */
+    /* GAME DETAILS */
 
     .game-details {
         grid-template-columns: 1fr;
