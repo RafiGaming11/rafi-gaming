@@ -12,24 +12,28 @@
 
 <body>
 
-    <!-- NAVIGATION -->
+<header>
 
-    <header>
-        <nav class="navbar">
+    <nav class="navbar">
 
-            <div class="logo">
-                🎮 RAFI<span>GAMING</span>
-            </div>
+        <div class="logo">
+            🎮 RAFI<span>GAMING</span>
+        </div>
 
-            <a href="index.html" class="back-button">
-                ← BACK
-            </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
 
-        </nav>
-    </header>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </nav>
+
+</header>
 
 
-    <!-- GAME DETAILS -->
+<main>
 
     <section class="game-details">
 
@@ -44,6 +48,10 @@
 
         <div class="details-content">
 
+            <a href="games.html" class="back-button">
+                ← BACK TO GAMES
+            </a>
+
             <p class="section-small">
                 FEATURED GAME
             </p>
@@ -57,52 +65,51 @@
             </div>
 
             <p>
-                Travel beyond the stars and enter a
-                massive science-fiction adventure.
-                Explore unknown planets, discover new
-                worlds, and battle enemies across the galaxy.
+                Travel beyond the stars and become a legendary
+                space raider. Explore unknown planets, discover
+                new worlds and battle enemies across the galaxy.
             </p>
-
 
             <div class="game-info-list">
 
                 <p>
-                    <strong>Genre:</strong>
+                    <strong>🚀 Genre:</strong>
                     Sci-Fi • Action
                 </p>
 
                 <p>
-                    <strong>Mode:</strong>
+                    <strong>👥 Mode:</strong>
                     Single Player
                 </p>
 
                 <p>
-                    <strong>Rating:</strong>
-                    9.3 / 10
+                    <strong>💻 Platform:</strong>
+                    PC
                 </p>
 
             </div>
 
-
-            <button onclick="alert('Galaxy Raiders coming soon!')">
-                🚀 PLAY GAME
+            <button onclick="alert('Game coming soon!')">
+                PLAY GAME
             </button>
 
         </div>
 
     </section>
 
+</main>
 
-    <!-- FOOTER -->
 
-    <footer>
+<footer>
 
-        <p>
-            © 2026 Rafi Gaming. All Rights Reserved.
-        </p>
+    <p>
+        © 2026 Rafi Gaming. All Rights Reserved.
+    </p>
 
-    </footer>
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
