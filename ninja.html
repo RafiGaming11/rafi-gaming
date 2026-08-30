@@ -12,36 +12,45 @@
 
 <body>
 
-    <!-- NAVIGATION -->
+<header>
 
-    <header>
-        <nav class="navbar">
+    <nav class="navbar">
 
-            <div class="logo">
-                🎮 RAFI<span>GAMING</span>
-            </div>
+        <div class="logo">
+            🎮 RAFI<span>GAMING</span>
+        </div>
 
-            <a href="index.html" class="back-button">
-                ← BACK
-            </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
 
-        </nav>
-    </header>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </nav>
+
+</header>
 
 
-    <!-- GAME DETAILS -->
+<main>
 
     <section class="game-details">
 
         <div class="details-image">
 
-           <img
-    src="https://teamninja-studio.com/ng/assets/img/ng4_ss_13.jpg"
-    alt="Ninja Strike">
+            <img
+                src="https://images.unsplash.com/photo-1578632767115-351597cf2477"
+                alt="Ninja Strike">
+
         </div>
 
 
         <div class="details-content">
+
+            <a href="games.html" class="back-button">
+                ← BACK TO GAMES
+            </a>
 
             <p class="section-small">
                 FEATURED GAME
@@ -56,53 +65,52 @@
             </div>
 
             <p>
-                Become a legendary ninja and master
-                the art of stealth and combat.
-                Take on dangerous enemies, explore
-                mysterious locations, and prove your
-                skills in battle.
+                Master the art of the ninja. Use speed,
+                strategy and powerful combat skills to
+                defeat your enemies and become the ultimate
+                warrior.
             </p>
-
 
             <div class="game-info-list">
 
                 <p>
-                    <strong>Genre:</strong>
+                    <strong>🥷 Genre:</strong>
                     Action • Fighting
                 </p>
 
                 <p>
-                    <strong>Mode:</strong>
+                    <strong>👤 Mode:</strong>
                     Single Player
                 </p>
 
                 <p>
-                    <strong>Rating:</strong>
-                    8.9 / 10
+                    <strong>💻 Platform:</strong>
+                    PC
                 </p>
 
             </div>
 
-
-            <button onclick="alert('Ninja Strike coming soon!')">
-                🥷 PLAY GAME
+            <button onclick="alert('Game coming soon!')">
+                PLAY GAME
             </button>
 
         </div>
 
     </section>
 
+</main>
 
-    <!-- FOOTER -->
 
-    <footer>
+<footer>
 
-        <p>
-            © 2026 Rafi Gaming. All Rights Reserved.
-        </p>
+    <p>
+        © 2026 Rafi Gaming. All Rights Reserved.
+    </p>
 
-    </footer>
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
