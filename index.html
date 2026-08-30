@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Rafi Gaming</title>
+    <title>Rafi Gaming - Home</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+    <!-- NAVIGATION -->
 
     <header>
         <nav class="navbar">
@@ -24,9 +22,9 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
 
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -35,314 +33,48 @@
     </header>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- HOME -->
 
-    <section id="home" class="hero">
+    <main>
 
-        <div class="hero-content">
+        <section class="hero">
 
-            <p class="small-title">
-                WELCOME TO THE FUTURE OF GAMING
-            </p>
+            <div class="hero-content">
 
-            <h1>
-                ENTER THE
-                <span>GAME</span>
-            </h1>
+                <p class="small-title">
+                    WELCOME TO THE FUTURE OF GAMING
+                </p>
 
-            <p class="hero-text">
-                Discover amazing games, explore new worlds,
-                and find your next gaming adventure.
-            </p>
+                <h1>
+                    ENTER THE
+                    <span>GAME</span>
+                </h1>
 
-            <div class="hero-buttons">
+                <p class="hero-text">
+                    Discover amazing games, explore new worlds,
+                    and find your next gaming adventure.
+                </p>
 
-                <a href="#games" class="primary-btn">
-                    EXPLORE GAMES
-                </a>
+                <div class="hero-buttons">
 
-                <a href="#about" class="secondary-btn">
-                    LEARN MORE
-                </a>
+                    <a href="games.html" class="primary-btn">
+                        EXPLORE GAMES
+                    </a>
 
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         GAMES
-    ========================== -->
-
-    <section id="games" class="games-section">
-
-        <p class="section-small">
-            FEATURED
-        </p>
-
-        <h2>
-            POPULAR <span>GAMES</span>
-        </h2>
-
-
-        <div class="game-container">
-
-
-            <!-- =========================
-                 GAME 1
-            ========================== -->
-
-            <div class="game-card">
-
-                <div class="game-image game1">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1542751371-adc38448a05e"
-                        alt="Cyber Warrior">
-
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        Cyber Warrior
-                    </h3>
-
-                    <p>
-                        Action • Adventure
-                    </p>
-
-                    <div class="rating">
-                        ⭐ 9.2 / 10
-                    </div>
-
-                    <button onclick="window.location.href='game.html'">
-                        VIEW GAME
-                    </button>
+                    <a href="about.html" class="secondary-btn">
+                        LEARN MORE
+                    </a>
 
                 </div>
 
             </div>
 
+        </section>
 
-            <!-- =========================
-                 GAME 2
-            ========================== -->
+    </main>
 
-            <div class="game-card">
 
-                <div class="game-image game2">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d"
-                        alt="Speed Legends">
-
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        Speed Legends
-                    </h3>
-
-                    <p>
-                        Racing • Multiplayer
-                    </p>
-
-                    <div class="rating">
-                        ⭐ 8.8 / 10
-                    </div>
-
-                    <button onclick="window.location.href='speed.html'">
-                        VIEW GAME
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 GAME 3
-            ========================== -->
-
-            <div class="game-card">
-
-                <div class="game-image game3">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23"
-                        alt="Shadow Realm">
-
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        Shadow Realm
-                    </h3>
-
-                    <p>
-                        RPG • Fantasy
-                    </p>
-
-                    <div class="rating">
-                        ⭐ 9.5 / 10
-                    </div>
-
-                    <button onclick="window.location.href='shadow.html'">
-                        VIEW GAME
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 GAME 4
-            ========================== -->
-
-            <div class="game-card">
-
-                <div class="game-image game4">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1509248961158-e54f6934749c"
-                        alt="Zombie Survival">
-
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        Zombie Survival
-                    </h3>
-
-                    <p>
-                        Horror • Survival
-                    </p>
-
-                    <div class="rating">
-                        ⭐ 9.0 / 10
-                    </div>
-
-                  <button onclick="window.location.href='zombie.html'">
-                 VIEW GAME
-                 </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 GAME 5
-            ========================== -->
-
-            <div class="game-card">
-
-                <div class="game-image game5">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2"
-                        alt="Galaxy Raiders">
-
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        Galaxy Raiders
-                    </h3>
-
-                    <p>
-                        Sci-Fi • Action
-                    </p>
-
-                    <div class="rating">
-                        ⭐ 9.3 / 10
-                    </div>
-
-                    <button onclick="window.location.href='galaxy.html'">
-    VIEW GAME
-</button>
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 GAME 6
-            ========================== -->
-
-            <div class="game-card">
-
-                <div class="game-image game6">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1533158307587-828f0a76d7a9"
-                        alt="Ninja Strike">
-
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        Ninja Strike
-                    </h3>
-
-                    <p>
-                        Action • Fighting
-                    </p>
-
-                    <div class="rating">
-                        ⭐ 8.9 / 10
-                    </div>
-
-                    <button onclick="window.location.href='ninja.html'">
-                    VIEW GAME
-                  </button>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
-    <section id="about" class="about">
-
-        <p class="section-small">
-            ABOUT US
-        </p>
-
-        <h2>
-            LEVEL UP YOUR <span>EXPERIENCE</span>
-        </h2>
-
-        <p>
-            Rafi Gaming is a place for gamers to discover
-            new games, explore gaming worlds and find their
-            next favorite adventure.
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -352,8 +84,6 @@
 
     </footer>
 
-
-    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
