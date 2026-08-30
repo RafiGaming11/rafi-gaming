@@ -11,6 +11,7 @@ body {
     color: white;
 }
 
+
 /* =========================
    NAVIGATION
 ========================= */
@@ -81,17 +82,20 @@ header {
 .nav-links a:hover {
     color: #a855f7;
     text-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
-    transform: translateY(-2px);
 }
 
 .menu-btn {
     display: none;
+
     background: none;
     border: none;
+
     color: white;
     font-size: 25px;
+
     cursor: pointer;
 }
+
 
 /* =========================
    HERO
@@ -117,6 +121,7 @@ header {
         );
 
     background-size: 150% 150%;
+
     animation: gamingGlow 8s ease-in-out infinite;
 }
 
@@ -152,6 +157,7 @@ header {
 .hero h1 {
     font-size: clamp(50px, 8vw, 110px);
     line-height: 0.9;
+
     margin-bottom: 30px;
 }
 
@@ -162,6 +168,7 @@ h2 span {
 
 .hero-text {
     max-width: 600px;
+
     margin: auto;
 
     color: #aaa;
@@ -184,6 +191,7 @@ h2 span {
     padding: 15px 28px;
 
     text-decoration: none;
+
     font-weight: bold;
 
     border-radius: 5px;
@@ -210,25 +218,31 @@ h2 span {
     border-color: #9b6cff;
 }
 
+
 /* =========================
    GAMES
 ========================= */
 
 .games-section {
     max-width: 1200px;
+
     margin: auto;
+
     padding: 110px 25px;
 }
 
 .games-section h2,
 .about h2 {
     font-size: 50px;
+
     margin-bottom: 45px;
 }
 
 .game-container {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
@@ -236,9 +250,11 @@ h2 span {
     background: #111116;
 
     border: 1px solid #25252d;
+
     border-radius: 12px;
 
     overflow: hidden;
+
     transition: 0.4s;
 }
 
@@ -261,6 +277,7 @@ h2 span {
     height: 100%;
 
     object-fit: cover;
+
     display: block;
 
     transition: transform 0.5s ease;
@@ -303,6 +320,7 @@ h2 span {
 
 .game-info h3 {
     font-size: 24px;
+
     margin-bottom: 8px;
 }
 
@@ -324,6 +342,7 @@ h2 span {
     color: white;
 
     border: 1px solid #555;
+
     border-radius: 5px;
 
     cursor: pointer;
@@ -341,6 +360,7 @@ h2 span {
     box-shadow:
         0 0 20px rgba(124, 60, 255, 0.7);
 }
+
 
 /* =========================
    ABOUT
@@ -368,6 +388,7 @@ h2 span {
     font-size: 18px;
 }
 
+
 /* =========================
    FOOTER
 ========================= */
@@ -381,6 +402,7 @@ footer {
 
     border-top: 1px solid #222;
 }
+
 
 /* =========================
    GAME DETAILS PAGE
@@ -511,6 +533,7 @@ footer {
         0 0 25px rgba(124, 60, 255, 0.8);
 }
 
+
 /* =========================
    MOBILE
 ========================= */
@@ -521,13 +544,55 @@ footer {
         padding: 0 15px;
     }
 
+    /* Mobile menu */
+
     .nav-links {
         display: none;
+
+        position: absolute;
+
+        top: 75px;
+
+        right: 15px;
+
+        width: 180px;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        background: #111116;
+
+        border: 1px solid #7c3cff;
+
+        border-radius: 10px;
+
+        padding: 10px;
+
+        box-shadow:
+            0 10px 30px rgba(124, 60, 255, 0.3);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 12px;
     }
 
     .menu-btn {
         display: block;
     }
+
+
+    /* Hero */
 
     .hero {
         padding: 100px 15px 60px;
@@ -545,22 +610,22 @@ footer {
         max-width: 300px;
 
         margin-left: auto;
+
         margin-right: auto;
     }
 
     .primary-btn,
     .secondary-btn {
         width: 100%;
+
         text-align: center;
     }
 
+
+    /* Games */
+
     .games-section {
         padding: 80px 15px;
-    }
-
-    .games-section h2,
-    .about h2 {
-        font-size: 35px;
     }
 
     .game-container {
@@ -570,6 +635,14 @@ footer {
     .game-info {
         padding: 20px;
     }
+
+    .games-section h2,
+    .about h2 {
+        font-size: 35px;
+    }
+
+
+    /* Game details */
 
     .game-details {
         grid-template-columns: 1fr;
@@ -595,6 +668,7 @@ footer {
 
     .back-button {
         padding: 8px 12px;
+
         font-size: 14px;
     }
 }
