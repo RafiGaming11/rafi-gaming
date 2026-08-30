@@ -863,3 +863,69 @@ footer {
     }
 
 }
+/* =========================
+   FINAL GAMES PAGE FIX
+========================= */
+
+.games-section .game-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 25px !important;
+    width: 100% !important;
+}
+
+.games-section .game-card {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.games-section .game-image {
+    width: 100% !important;
+    height: 230px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.games-section .game-image img {
+    width: 100% !important;
+    height: 230px !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.games-section .game-info {
+    padding: 25px !important;
+    min-height: 220px;
+}
+
+/* Search */
+
+.games-section .game-search {
+    width: 100% !important;
+    max-width: 600px !important;
+}
+
+.games-section .game-search input {
+    width: 100% !important;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .games-section .game-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .games-section .game-container {
+        grid-template-columns: 1fr !important;
+    }
+
+}
