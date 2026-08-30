@@ -5,76 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Game Details - Rafi Gaming</title>
+    <title>Shadow Realm - Rafi Gaming</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <nav class="navbar">
+<header>
 
-            <div class="logo">
-                🎮 RAFI<span>GAMING</span>
-            </div>
+    <nav class="navbar">
 
-            <a href="index.html" class="back-button">
-                ← BACK
-            </a>
+        <div class="logo">
+            🎮 RAFI<span>GAMING</span>
+        </div>
 
-        </nav>
-    </header>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
 
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </nav>
+
+</header>
+
+
+<main>
 
     <section class="game-details">
 
-       <div class="details-image">
-    <img
-        src="https://images.unsplash.com/photo-1548013146-72479768bada"
-        alt="Shadow Realm">
-</div>
+        <div class="details-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23"
+                alt="Shadow Realm">
+
+        </div>
+
+
         <div class="details-content">
+
+            <a href="games.html" class="back-button">
+                ← BACK TO GAMES
+            </a>
 
             <p class="section-small">
                 FEATURED GAME
             </p>
 
             <h1>
-    SHADOW <span>REALM</span>
-</h1>
+                SHADOW <span>REALM</span>
+            </h1>
+
             <div class="details-rating">
                 ⭐ 9.5 / 10
             </div>
 
             <p>
-            Enter a mysterious fantasy world filled with ancient
-castles, powerful enemies, magical secrets, and
-dangerous adventures. Discover the Shadow Realm.     
-           </p>
+                Enter a mysterious fantasy world filled with
+                ancient powers, dangerous creatures and hidden
+                secrets. Explore the Shadow Realm and discover
+                your destiny.
+            </p>
 
             <div class="game-info-list">
 
-    <p><strong>Genre:</strong> RPG • Fantasy</p>
+                <p>
+                    <strong>⚔️ Genre:</strong>
+                    RPG • Fantasy
+                </p>
 
-    <p><strong>Mode:</strong> Single Player</p>
+                <p>
+                    <strong>👤 Mode:</strong>
+                    Single Player
+                </p>
 
-    <p><strong>Rating:</strong> 9.5 / 10</p>
+                <p>
+                    <strong>💻 Platform:</strong>
+                    PC
+                </p>
 
-</div>
+            </div>
+
             <button onclick="alert('Game coming soon!')">
-                🎮 PLAY GAME
+                PLAY GAME
             </button>
 
         </div>
 
     </section>
 
+</main>
 
-    <footer>
-        <p>© 2026 Rafi Gaming. All Rights Reserved.</p>
-    </footer>
+
+<footer>
+
+    <p>
+        © 2026 Rafi Gaming. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
