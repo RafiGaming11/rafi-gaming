@@ -730,3 +730,114 @@ footer {
         font-size: 14px;
     }
 }
+/* =========================
+   EXTRA GAMING ANIMATIONS
+========================= */
+
+/* Smooth page appearance */
+body {
+    animation: pageLoad 0.8s ease;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Logo glow */
+.logo {
+    animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    from {
+        text-shadow: 0 0 5px rgba(124, 60, 255, 0.2);
+    }
+
+    to {
+        text-shadow: 0 0 20px rgba(124, 60, 255, 0.8);
+    }
+}
+
+/* Hero title glow */
+.hero h1 {
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 5px rgba(139, 92, 246, 0.1);
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+    }
+}
+
+/* Buttons pulse slightly */
+.primary-btn {
+    animation: buttonPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(124, 60, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(124, 60, 255, 0.5);
+    }
+}
+
+/* Game cards appear smoothly */
+.game-card {
+    animation: cardAppear 0.8s ease both;
+}
+
+.game-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.game-card:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.game-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons feel more interactive */
+.primary-btn,
+.secondary-btn,
+.game-info button,
+.back-button {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.game-info button:hover,
+.back-button:hover {
+    transform: translateY(-4px);
+}
