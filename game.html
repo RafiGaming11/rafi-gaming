@@ -12,103 +12,131 @@
 
 <body>
 
-<header>
-    <nav class="navbar">
+    <!-- NAVIGATION -->
 
-        <div class="logo">
-            🎮 RAFI<span>GAMING</span>
-        </div>
+    <header>
+        <nav class="navbar">
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
+            <div class="logo">
+                🎮 RAFI<span>GAMING</span>
+            </div>
 
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
 
-    </nav>
-</header>
+            <button class="menu-btn" onclick="toggleMenu()">
+                ☰
+            </button>
 
-
-<main>
-
-    <section class="game-details">
-
-        <div class="details-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1542751371-adc38448a05e"
-                alt="Cyber Warrior">
-
-        </div>
+        </nav>
+    </header>
 
 
-        <div class="details-content">
+    <!-- GAME DETAILS -->
+
+    <main>
+
+        <section class="game-details">
+
+            <!-- BACK TO GAMES -->
 
             <a href="games.html" class="back-button">
                 ← BACK TO GAMES
             </a>
 
-            <p class="section-small">
-                FEATURED GAME
-            </p>
 
-            <h1>
-                CYBER <span>WARRIOR</span>
-            </h1>
+            <!-- GAME IMAGE -->
 
-            <div class="details-rating">
-                ⭐ 9.2 / 10
-            </div>
+            <div class="details-image">
 
-            <p>
-                Enter a futuristic world filled with danger,
-                powerful enemies and intense action. Become
-                the ultimate Cyber Warrior and fight your way
-                through a high-tech battlefield.
-            </p>
-
-            <div class="game-info-list">
-
-                <p>
-                    <strong>🎮 Genre:</strong>
-                    Action • Adventure
-                </p>
-
-                <p>
-                    <strong>👥 Mode:</strong>
-                    Single Player
-                </p>
-
-                <p>
-                    <strong>💻 Platform:</strong>
-                    PC
-                </p>
+                <img
+                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e"
+                    alt="Cyber Warrior">
 
             </div>
 
-            <button onclick="alert('Game coming soon!')">
-                PLAY GAME
-            </button>
 
-        </div>
+            <!-- GAME INFORMATION -->
 
-    </section>
+            <div class="details-content">
 
-</main>
+                <p class="section-small">
+                    FEATURED GAME
+                </p>
+
+                <h1>
+                    CYBER <span>WARRIOR</span>
+                </h1>
+
+                <div class="details-rating">
+                    ⭐ 9.2 / 10
+                </div>
+
+                <p class="game-description">
+                    Enter a futuristic world filled with danger,
+                    powerful enemies and intense action.
+                    Become the ultimate Cyber Warrior and fight
+                    your way through a high-tech battlefield.
+                </p>
 
 
-<footer>
+                <!-- GAME INFORMATION -->
 
-    <p>
-        © 2026 Rafi Gaming. All Rights Reserved.
-    </p>
+                <div class="game-info-list">
 
-</footer>
+                    <p>
+                        <strong>🎮 Genre:</strong>
+                        Action • Adventure
+                    </p>
+
+                    <p>
+                        <strong>👤 Mode:</strong>
+                        Single Player
+                    </p>
+
+                    <p>
+                        <strong>💻 Platform:</strong>
+                        PC
+                    </p>
+
+                </div>
 
 
-<script src="script.js"></script>
+                <!-- PLAY BUTTON -->
+
+                <button
+                    class="play-button"
+                    onclick="alert('Game coming soon!')">
+
+                    PLAY GAME
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Rafi Gaming. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
