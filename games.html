@@ -48,12 +48,62 @@
             </h2>
 
 
-            <div class="game-container">
+            <!-- SEARCH -->
+
+            <div class="game-search">
+
+                <input
+                    type="text"
+                    id="gameSearch"
+                    placeholder="🔎 Search for a game..."
+                    onkeyup="searchGames()">
+
+            </div>
+
+
+            <!-- GENRE FILTERS -->
+
+            <div class="game-filters">
+
+                <button onclick="filterGames('all')" class="filter-btn active">
+                    ALL
+                </button>
+
+                <button onclick="filterGames('action')" class="filter-btn">
+                    ACTION
+                </button>
+
+                <button onclick="filterGames('racing')" class="filter-btn">
+                    RACING
+                </button>
+
+                <button onclick="filterGames('rpg')" class="filter-btn">
+                    RPG
+                </button>
+
+                <button onclick="filterGames('horror')" class="filter-btn">
+                    HORROR
+                </button>
+
+                <button onclick="filterGames('sci-fi')" class="filter-btn">
+                    SCI-FI
+                </button>
+
+                <button onclick="filterGames('fighting')" class="filter-btn">
+                    FIGHTING
+                </button>
+
+            </div>
+
+
+            <!-- GAME GRID -->
+
+            <div class="game-container" id="gameContainer">
 
 
                 <!-- GAME 1 -->
 
-                <div class="game-card">
+                <div class="game-card" data-genre="action">
 
                     <div class="game-image game1">
 
@@ -84,7 +134,7 @@
 
                 <!-- GAME 2 -->
 
-                <div class="game-card">
+                <div class="game-card" data-genre="racing">
 
                     <div class="game-image game2">
 
@@ -115,7 +165,7 @@
 
                 <!-- GAME 3 -->
 
-                <div class="game-card">
+                <div class="game-card" data-genre="rpg">
 
                     <div class="game-image game3">
 
@@ -146,7 +196,7 @@
 
                 <!-- GAME 4 -->
 
-                <div class="game-card">
+                <div class="game-card" data-genre="horror">
 
                     <div class="game-image game4">
 
@@ -177,7 +227,7 @@
 
                 <!-- GAME 5 -->
 
-                <div class="game-card">
+                <div class="game-card" data-genre="sci-fi">
 
                     <div class="game-image game5">
 
@@ -208,7 +258,7 @@
 
                 <!-- GAME 6 -->
 
-                <div class="game-card">
+                <div class="game-card" data-genre="fighting">
 
                     <div class="game-image game6">
 
@@ -239,6 +289,13 @@
 
             </div>
 
+
+            <!-- NO RESULTS MESSAGE -->
+
+            <p id="noResults" class="no-results">
+                😕 No games found.
+            </p>
+
         </section>
 
     </main>
@@ -256,6 +313,102 @@
 
 
     <script src="script.js"></script>
+
+
+    <!-- GAME SEARCH & FILTER -->
+
+    <script>
+
+        let currentGenre = "all";
+
+
+        function filterGames(genre) {
+
+            currentGenre = genre;
+
+            const buttons = document.querySelectorAll(".filter-btn");
+
+            buttons.forEach(button => {
+                button.classList.remove("active");
+            });
+
+            event.target.classList.add("active");
+
+            applyFilters();
+        }
+
+
+        function searchGames() {
+
+            applyFilters();
+
+        }
+
+
+        function applyFilters() {
+
+            const searchText =
+                document.getElementById("gameSearch")
+                .value
+                .toLowerCase();
+
+            const games =
+                document.querySelectorAll(".game-card");
+
+            let visibleGames = 0;
+
+
+            games.forEach(game => {
+
+                const name =
+                    game.querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+                const genre =
+                    game.dataset.genre;
+
+
+                const matchesSearch =
+                    name.includes(searchText);
+
+                const matchesGenre =
+                    currentGenre === "all" ||
+                    genre === currentGenre;
+
+
+                if (matchesSearch && matchesGenre) {
+
+                    game.style.display = "";
+
+                    visibleGames++;
+
+                } else {
+
+                    game.style.display = "none";
+
+                }
+
+            });
+
+
+            const noResults =
+                document.getElementById("noResults");
+
+
+            if (visibleGames === 0) {
+
+                noResults.style.display = "block";
+
+            } else {
+
+                noResults.style.display = "none";
+
+            }
+
+        }
+
+    </script>
 
 </body>
 
