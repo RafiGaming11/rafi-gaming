@@ -88,13 +88,10 @@ header {
 
 .menu-btn {
     display: none;
-
     background: none;
     border: none;
-
     color: white;
     font-size: 25px;
-
     cursor: pointer;
 }
 
@@ -140,6 +137,7 @@ header {
     100% {
         background-position: 0% 50%;
     }
+
 }
 
 .hero-content {
@@ -229,14 +227,17 @@ h2 span {
 .games-section {
     max-width: 1200px;
 
+    min-height: 100vh;
+
     margin: auto;
 
-    padding: 130px 25px 100px;
+    padding: 140px 25px 100px;
+
+    background: #07070a;
 }
 
 .games-section h2 {
     font-size: 50px;
-
     margin-bottom: 35px;
 }
 
@@ -249,13 +250,13 @@ h2 span {
     width: 100%;
     max-width: 600px;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .game-search input {
     width: 100%;
 
-    padding: 16px 20px;
+    padding: 14px 18px;
 
     background: #111116;
 
@@ -313,6 +314,7 @@ h2 span {
     cursor: pointer;
 
     font-size: 14px;
+
     font-weight: bold;
 
     transition: 0.3s ease;
@@ -360,7 +362,7 @@ h2 span {
 
     border: 1px solid #25252d;
 
-    border-radius: 12px;
+    border-radius: 18px;
 
     overflow: hidden;
 
@@ -511,6 +513,7 @@ h2 span {
     cursor: pointer;
 
     font-size: 15px;
+
     font-weight: bold;
 
     transition: 0.3s ease;
@@ -757,6 +760,7 @@ footer {
 
     .filter-btn {
         padding: 9px 13px;
+
         font-size: 13px;
     }
 
@@ -825,4 +829,37 @@ footer {
 
         font-size: 14px;
     }
+}
+
+
+/* =========================
+   GAMES PAGE MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .game-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .games-section {
+        padding: 120px 20px 60px;
+    }
+
+    .games-section h2 {
+        font-size: 36px;
+    }
+
+    .game-container {
+        grid-template-columns: 1fr;
+    }
+
+    .game-search input {
+        width: 100%;
+    }
+
 }
