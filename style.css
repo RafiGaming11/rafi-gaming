@@ -1088,3 +1088,174 @@ footer {
     }
 
 }
+/* ============================= */
+/* GAME DETAILS PAGE */
+/* ============================= */
+
+.game-details {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 25px 80px;
+}
+
+
+/* BACK TO GAMES */
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 11px 20px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #8b5cf6;
+    border-radius: 10px;
+
+    color: white;
+    background: rgba(139, 92, 246, 0.08);
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background: #8b5cf6;
+    transform: translateX(-3px);
+}
+
+
+/* GAME IMAGE */
+
+.details-image {
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    margin-bottom: 40px;
+}
+
+.details-image img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* GAME INFORMATION */
+
+.details-content {
+    padding: 0 5px;
+}
+
+.details-content .section-small {
+    margin-bottom: 15px;
+}
+
+.details-content h1 {
+    margin: 0 0 25px;
+
+    font-size: 52px;
+    line-height: 1.1;
+}
+
+.details-content h1 span {
+    color: #8b5cf6;
+}
+
+
+/* RATING */
+
+.details-rating {
+    font-size: 23px;
+
+    margin-bottom: 30px;
+}
+
+
+/* DESCRIPTION */
+
+.game-description {
+    max-width: 850px;
+
+    font-size: 18px;
+    line-height: 1.8;
+
+    color: #aaa;
+
+    margin-bottom: 30px;
+}
+
+
+/* GAME INFORMATION LIST */
+
+.game-info-list {
+    margin-bottom: 35px;
+}
+
+.game-info-list p {
+    margin: 12px 0;
+
+    font-size: 16px;
+
+    color: #aaa;
+}
+
+.game-info-list strong {
+    color: white;
+}
+
+
+/* PLAY BUTTON */
+
+.play-button {
+    padding: 14px 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #8b5cf6;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.play-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .game-details {
+        padding: 25px 16px 60px;
+    }
+
+    .details-image img {
+        height: 300px;
+    }
+
+    .details-content h1 {
+        font-size: 38px;
+    }
+
+    .game-description {
+        font-size: 16px;
+    }
+
+}
