@@ -5,78 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Game Details - Rafi Gaming</title>
+    <title>Speed Legends - Rafi Gaming</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <nav class="navbar">
+<header>
 
-            <div class="logo">
-                🎮 RAFI<span>GAMING</span>
-            </div>
+    <nav class="navbar">
 
-            <a href="index.html" class="back-button">
-                ← BACK
-            </a>
+        <div class="logo">
+            🎮 RAFI<span>GAMING</span>
+        </div>
 
-        </nav>
-    </header>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
 
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </nav>
+
+</header>
+
+
+<main>
 
     <section class="game-details">
 
         <div class="details-image">
+
             <img
                 src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d"
-                alt="speed legends">
+                alt="Speed Legends">
+
         </div>
 
+
         <div class="details-content">
+
+            <a href="games.html" class="back-button">
+                ← BACK TO GAMES
+            </a>
 
             <p class="section-small">
                 FEATURED GAME
             </p>
 
             <h1>
-    SPEED <span>LEGENDS</span>
-</h1>
+                SPEED <span>LEGENDS</span>
+            </h1>
+
             <div class="details-rating">
                 ⭐ 8.8 / 10
             </div>
 
             <p>
-            Race through incredible locations, master high-speed
-cars, compete against other racers, and become the
-ultimate racing champion.     
-           </p>
+                Push your driving skills to the limit in
+                Speed Legends. Race against skilled drivers,
+                discover powerful cars and compete on
+                exciting tracks around the world.
+            </p>
 
             <div class="game-info-list">
 
-                <p><strong>Genre:</strong>Racing • Multiplayer</p>
+                <p>
+                    <strong>🏎️ Genre:</strong>
+                    Racing • Multiplayer
+                </p>
 
-                <p><strong>Mode:</strong> Multiplayer</p>
+                <p>
+                    <strong>👥 Mode:</strong>
+                    Multiplayer
+                </p>
 
-                <p><strong>Rating:</strong> 8.8 / 10</p>
+                <p>
+                    <strong>💻 Platform:</strong>
+                    PC
+                </p>
 
             </div>
 
             <button onclick="alert('Game coming soon!')">
-                🎮 PLAY GAME
+                PLAY GAME
             </button>
 
         </div>
 
     </section>
 
+</main>
 
-    <footer>
-        <p>© 2026 Rafi Gaming. All Rights Reserved.</p>
-    </footer>
+
+<footer>
+
+    <p>
+        © 2026 Rafi Gaming. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
