@@ -12,20 +12,28 @@
 
 <body>
 
-    <header>
-        <nav class="navbar">
+<header>
 
-            <div class="logo">
-                🎮 RAFI<span>GAMING</span>
-            </div>
+    <nav class="navbar">
 
-            <a href="index.html" class="back-button">
-                ← BACK
-            </a>
+        <div class="logo">
+            🎮 RAFI<span>GAMING</span>
+        </div>
 
-        </nav>
-    </header>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
 
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </nav>
+
+</header>
+
+
+<main>
 
     <section class="game-details">
 
@@ -40,6 +48,10 @@
 
         <div class="details-content">
 
+            <a href="games.html" class="back-button">
+                ← BACK TO GAMES
+            </a>
+
             <p class="section-small">
                 FEATURED GAME
             </p>
@@ -53,51 +65,52 @@
             </div>
 
             <p>
-                The world has fallen into chaos.
-                Zombies are everywhere and survival
-                is your only goal. Explore dangerous
-                locations, find supplies, and survive
-                the undead outbreak.
+                The world has fallen into chaos. Survive
+                against endless waves of zombies, search
+                for supplies and fight to stay alive in
+                a dangerous post-apocalyptic world.
             </p>
-
 
             <div class="game-info-list">
 
                 <p>
-                    <strong>Genre:</strong>
+                    <strong>🧟 Genre:</strong>
                     Horror • Survival
                 </p>
 
                 <p>
-                    <strong>Mode:</strong>
+                    <strong>👥 Mode:</strong>
                     Single Player
                 </p>
 
                 <p>
-                    <strong>Rating:</strong>
-                    9.0 / 10
+                    <strong>💻 Platform:</strong>
+                    PC
                 </p>
 
             </div>
 
-
-            <button onclick="alert('Zombie Survival coming soon!')">
-                🧟 PLAY GAME
+            <button onclick="alert('Game coming soon!')">
+                PLAY GAME
             </button>
 
         </div>
 
     </section>
 
+</main>
 
-    <footer>
 
-        <p>
-            © 2026 Rafi Gaming. All Rights Reserved.
-        </p>
+<footer>
 
-    </footer>
+    <p>
+        © 2026 Rafi Gaming. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
