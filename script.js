@@ -5,7 +5,7 @@ function toggleMenu() {
 }
 
 
-// Close menu automatically when a menu link is clicked
+// Close menu when Home, Games or About is clicked
 
 document.querySelectorAll(".nav-links a").forEach(link => {
 
