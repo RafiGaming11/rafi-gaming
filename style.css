@@ -1616,32 +1616,38 @@ footer {
     }
 
 }
-/* ===============================
-   FAVORITE BUTTON
-   =============================== */
+/* =================================
+   PROFESSIONAL WISHLIST BUTTON
+   ================================= */
+
+.game-card {
+    position: relative;
+}
 
 .game-card .favorite-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
 
-    width: 42px !important;
-    height: 42px !important;
+    top: 14px;
+    right: 14px;
 
-    min-width: 42px;
-    max-width: 42px;
+    width: 38px !important;
+    height: 38px !important;
+
+    min-width: 38px;
+    max-width: 38px;
 
     padding: 0 !important;
     margin: 0 !important;
 
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
     border-radius: 50% !important;
 
-    background: rgba(0, 0, 0, 0.7) !important;
+    background: rgba(15, 15, 20, 0.75) !important;
 
     color: white;
 
-    font-size: 23px;
+    font-size: 20px;
+    line-height: 1;
 
     display: flex;
     align-items: center;
@@ -1649,28 +1655,42 @@ footer {
 
     cursor: pointer;
 
-    z-index: 10;
+    z-index: 20;
 
-    transition: 0.25s ease;
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
 }
+
+
+/* Hover */
 
 .game-card .favorite-btn:hover {
-    transform: scale(1.12);
+    transform: scale(1.08);
 
-    background: rgba(125, 60, 255, 0.9) !important;
+    background: rgba(35, 35, 45, 0.9) !important;
+
+    border-color: rgba(255, 255, 255, 0.7) !important;
 }
+
+
+/* Saved / Favorite */
 
 .game-card .favorite-btn.favorite-active {
     color: #ff4d8d;
 
-    border-color: #ff4d8d !important;
+    background: rgba(20, 20, 25, 0.85) !important;
 
-    background: rgba(0, 0, 0, 0.75) !important;
+    border-color: #ff4d8d !important;
 }
 
 
-/* Make the game card the positioning area */
+/* Small click effect */
 
-.game-card {
-    position: relative;
+.game-card .favorite-btn:active {
+    transform: scale(0.92);
 }
