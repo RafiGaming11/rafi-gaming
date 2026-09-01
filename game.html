@@ -1,31 +1,849 @@
-<section class="game-details">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- GAME IMAGE FIRST -->
-    <div class="details-image">
-        <img
-            src="https://images.unsplash.com/photo-1542751371-adc38448a05e"
-            alt="Cyber Warrior">
-    </div>
+<head>
 
-    <!-- GAME INFORMATION SECOND -->
-    <div class="details-content">
+    <meta charset="UTF-8">
 
-        <a href="games.html" class="back-button">
-            ← BACK TO GAMES
-        </a>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-        <p class="section-small">FEATURED GAME</p>
+    <title>Rafi Gaming - Cyber Warrior</title>
 
-        <h1>
-            CYBER <span>WARRIOR</span>
-        </h1>
+    <style>
 
-        <div class="rating">
-            ⭐ 9.2 / 10
-        </div>
+        /* =========================
+           RESET
+        ========================= */
 
-        <!-- rest of Cyber Warrior information -->
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    </div>
+        html {
+            scroll-behavior: smooth;
+        }
 
-</section>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07070b;
+            color: white;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            width: 100%;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .navbar {
+            width: calc(100% - 40px);
+            min-height: 82px;
+
+            margin: 10px auto 0;
+
+            padding: 0 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(10, 10, 16, 0.96);
+
+            border: 1px solid rgba(137, 61, 255, 0.35);
+
+            border-radius: 0 0 20px 20px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.35);
+
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #8a3ffc;
+        }
+
+
+        /* DESKTOP NAV */
+
+        .nav-links {
+            list-style: none;
+
+            display: flex;
+            align-items: center;
+
+            gap: 38px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #8a3ffc;
+        }
+
+
+        /* MENU BUTTON */
+
+        .menu-btn {
+            display: none;
+
+            border: none;
+            background: transparent;
+
+            color: white;
+
+            font-size: 32px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           GAME DETAILS
+        ========================= */
+
+        .game-details {
+
+            width: min(1400px, 92%);
+
+            margin: 70px auto 100px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: start;
+
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .details-image {
+
+            width: 100%;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(138, 63, 252, 0.55);
+
+            box-shadow:
+                0 0 35px rgba(104, 38, 210, 0.18);
+
+            background: #111116;
+
+        }
+
+        .details-image img {
+
+            width: 100%;
+
+            height: 700px;
+
+            display: block;
+
+            object-fit: cover;
+
+        }
+
+
+        /* =========================
+           GAME CONTENT
+        ========================= */
+
+        .details-content {
+
+            padding-top: 0;
+
+            min-width: 0;
+
+        }
+
+
+        /* BACK BUTTON */
+
+        .back-button {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 50px;
+
+            padding: 0 24px;
+
+            margin-bottom: 35px;
+
+            border: 1px solid #8a3ffc;
+
+            border-radius: 10px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            background: rgba(138, 63, 252, 0.06);
+
+            transition: all 0.25s ease;
+
+        }
+
+        .back-button:hover {
+
+            background: #8138f5;
+
+            box-shadow:
+                0 0 25px rgba(138, 63, 252, 0.35);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* SMALL TITLE */
+
+        .section-small {
+
+            color: #b5b5c0;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* GAME TITLE */
+
+        .details-content h1 {
+
+            font-size: clamp(48px, 5vw, 72px);
+
+            line-height: 1.05;
+
+            margin-bottom: 35px;
+
+            font-weight: 900;
+
+            letter-spacing: -2px;
+
+        }
+
+        .details-content h1 span {
+
+            color: #8a3ffc;
+
+        }
+
+
+        /* =========================
+           RATING
+        ========================= */
+
+        .rating {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 28px;
+
+            margin-bottom: 35px;
+
+        }
+
+        .rating-star {
+            font-size: 34px;
+        }
+
+
+        /* =========================
+           DESCRIPTION
+        ========================= */
+
+        .description {
+
+            color: #b7b7c2;
+
+            font-size: 19px;
+
+            line-height: 1.9;
+
+            margin-bottom: 38px;
+
+            max-width: 700px;
+
+        }
+
+
+        /* =========================
+           GAME INFO
+        ========================= */
+
+        .game-meta {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+
+            margin-bottom: 40px;
+
+        }
+
+        .meta-item {
+
+            font-size: 18px;
+
+            color: #bdbdc8;
+
+        }
+
+        .meta-item strong {
+
+            color: white;
+
+            margin-right: 8px;
+
+        }
+
+
+        /* =========================
+           PLAY BUTTON
+        ========================= */
+
+        .play-button {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 200px;
+
+            height: 58px;
+
+            padding: 0 30px;
+
+            border-radius: 10px;
+
+            background: #8138f5;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+
+        }
+
+        .play-button:hover {
+
+            background: #9659ff;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(129, 56, 245, 0.3);
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            color: #777783;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+
+                width: calc(100% - 24px);
+
+                min-height: 72px;
+
+                padding: 0 20px;
+
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+
+                display: none;
+
+                position: absolute;
+
+                top: 82px;
+                right: 0;
+
+                width: 230px;
+
+                padding: 15px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 5px;
+
+                background: #101016;
+
+                border: 1px solid rgba(138, 63, 252, 0.4);
+
+                border-radius: 15px;
+
+                box-shadow:
+                    0 20px 50px rgba(0, 0, 0, 0.5);
+
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+
+                display: block;
+
+                padding: 14px;
+
+                border-radius: 10px;
+
+            }
+
+            .nav-links a:hover {
+                background: #8138f5;
+                color: white;
+            }
+
+
+            /* GAME LAYOUT */
+
+            .game-details {
+
+                width: calc(100% - 30px);
+
+                margin: 40px auto 70px;
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 35px;
+
+            }
+
+            .details-image {
+                order: 1;
+            }
+
+            .details-content {
+                order: 2;
+            }
+
+            .details-image img {
+
+                height: 430px;
+
+            }
+
+            .back-button {
+
+                margin-bottom: 28px;
+
+            }
+
+            .section-small {
+                font-size: 15px;
+                letter-spacing: 4px;
+            }
+
+            .details-content h1 {
+
+                font-size: 44px;
+
+                letter-spacing: -1px;
+
+            }
+
+            .rating {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 17px;
+                line-height: 1.7;
+            }
+
+        }
+
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .menu-btn {
+                font-size: 28px;
+            }
+
+            .game-details {
+                width: calc(100% - 20px);
+            }
+
+            .details-image img {
+                height: 330px;
+            }
+
+            .back-button {
+                width: 100%;
+            }
+
+            .details-content h1 {
+                font-size: 38px;
+            }
+
+            .play-button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🎮 RAFI<span>GAMING</span>
+            </div>
+
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="games.html">Games</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+            </ul>
+
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu">
+
+                ☰
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         GAME DETAILS
+    ========================== -->
+
+    <main>
+
+        <section class="game-details">
+
+
+            <!-- GAME IMAGE -->
+
+            <div class="details-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e"
+                    alt="Cyber Warrior">
+
+            </div>
+
+
+
+            <!-- GAME INFORMATION -->
+
+            <div class="details-content">
+
+
+                <!-- BACK TO GAMES -->
+
+                <a
+                    href="games.html"
+                    class="back-button">
+
+                    ← BACK TO GAMES
+
+                </a>
+
+
+                <!-- SECTION TITLE -->
+
+                <p class="section-small">
+                    FEATURED GAME
+                </p>
+
+
+                <!-- GAME TITLE -->
+
+                <h1>
+                    CYBER <span>WARRIOR</span>
+                </h1>
+
+
+                <!-- RATING -->
+
+                <div class="rating">
+
+                    <span class="rating-star">
+                        ⭐
+                    </span>
+
+                    <span>
+                        9.2 / 10
+                    </span>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="description">
+
+                    Enter a futuristic world filled with danger,
+                    powerful enemies and intense battles.
+                    Become the ultimate Cyber Warrior and fight
+                    your way through a world controlled by
+                    advanced technology.
+
+                </p>
+
+
+                <!-- GAME INFORMATION -->
+
+                <div class="game-meta">
+
+                    <div class="meta-item">
+
+                        🎮
+
+                        <strong>
+                            Genre:
+                        </strong>
+
+                        Action • Adventure
+
+                    </div>
+
+
+                    <div class="meta-item">
+
+                        👥
+
+                        <strong>
+                            Mode:
+                        </strong>
+
+                        Single Player
+
+                    </div>
+
+
+                    <div class="meta-item">
+
+                        💻
+
+                        <strong>
+                            Platform:
+                        </strong>
+
+                        PC
+
+                    </div>
+
+                </div>
+
+
+                <!-- PLAY BUTTON -->
+
+                <a
+                    href="#"
+                    class="play-button">
+
+                    PLAY GAME
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Rafi Gaming. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         MENU SCRIPT
+    ========================== -->
+
+    <script>
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("show");
+
+        });
+
+
+        /* Close menu after clicking a link */
+
+        const links =
+            navLinks.querySelectorAll("a");
+
+
+        links.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("show");
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
