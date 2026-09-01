@@ -2,379 +2,547 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cyber Warrior - Rafi Gaming</title>
+<title>Cyber Warrior - Rafi Gaming</title>
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            background: #07070b;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            overflow: hidden;
-        }
+body {
+    margin: 0;
+    background: #050509;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
 
-        /* TOP BAR */
+/* =========================
+   TOP BAR
+========================= */
 
-        .top-bar {
-            height: 70px;
-            padding: 0 25px;
+.top-bar {
+    height: 70px;
+    padding: 0 25px;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-            background: #0d0d14;
+    background: #0b0b12;
+    border-bottom: 1px solid #29293a;
 
-            border-bottom: 1px solid #272735;
+    position: relative;
+    z-index: 20;
+}
 
-            position: relative;
-            z-index: 10;
-        }
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+}
 
-        .logo {
-            font-size: 23px;
-            font-weight: 800;
-        }
+.logo span {
+    color: #8a3ffc;
+}
 
-        .logo span {
-            color: #8a3ffc;
-        }
+.game-title {
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
 
-        .game-title {
-            color: #aaa;
-            font-size: 14px;
-        }
+.exit-button {
+    padding: 9px 16px;
 
-        .exit-button {
-            padding: 9px 16px;
+    border: 1px solid #8a3ffc;
+    border-radius: 8px;
 
-            border: 1px solid #8a3ffc;
-            border-radius: 8px;
+    background: transparent;
+    color: white;
 
-            background: transparent;
-            color: white;
+    cursor: pointer;
+    font-weight: 600;
 
-            cursor: pointer;
+    transition: 0.2s;
+}
 
-            font-weight: 600;
-        }
+.exit-button:hover {
+    background: #8a3ffc;
+    box-shadow: 0 0 18px rgba(138,63,252,0.5);
+}
 
-        .exit-button:hover {
-            background: #8a3ffc;
-        }
 
+/* =========================
+   GAME AREA
+========================= */
 
-        /* GAME AREA */
+#gameArea {
+    position: relative;
 
-        #gameArea {
-            position: relative;
+    width: 100vw;
+    height: calc(100vh - 70px);
 
-            width: 100vw;
-            height: calc(100vh - 70px);
+    overflow: hidden;
 
-            overflow: hidden;
+    background:
+        radial-gradient(
+            circle at center,
+            #18152b 0%,
+            #08080e 55%,
+            #030305 100%
+        );
+}
 
-            background:
-                radial-gradient(circle at center,
-                    #171729 0%,
-                    #08080e 65%);
-        }
 
+/* FUTURISTIC GRID */
 
-        /* GRID */
+#gameArea::before {
+    content: "";
 
-        #gameArea::before {
-            content: "";
+    position: absolute;
+    inset: 0;
 
-            position: absolute;
+    background-image:
+        linear-gradient(#292044 1px, transparent 1px),
+        linear-gradient(90deg, #292044 1px, transparent 1px);
 
-            inset: 0;
+    background-size: 50px 50px;
 
-            background-image:
-                linear-gradient(#22223a 1px, transparent 1px),
-                linear-gradient(90deg, #22223a 1px, transparent 1px);
+    opacity: 0.25;
 
-            background-size: 50px 50px;
+    pointer-events: none;
+}
 
-            opacity: 0.25;
 
-            pointer-events: none;
-        }
+/* =========================
+   PLAYER
+========================= */
 
+#player {
+    position: absolute;
 
-        /* PLAYER */
+    width: 48px;
+    height: 48px;
 
-        #player {
-            position: absolute;
+    transform: translate(-50%, -50%);
 
-            width: 45px;
-            height: 45px;
+    z-index: 5;
 
-            background: #8a3ffc;
+    background:
+        linear-gradient(
+            135deg,
+            #d8b7ff,
+            #8a3ffc 45%,
+            #46119b
+        );
 
-            border-radius: 10px;
+    clip-path: polygon(
+        50% 0%,
+        85% 25%,
+        100% 65%,
+        70% 100%,
+        30% 100%,
+        0% 65%,
+        15% 25%
+    );
 
-            box-shadow:
-                0 0 20px #8a3ffc;
+    box-shadow:
+        0 0 12px #8a3ffc,
+        0 0 30px rgba(138,63,252,0.7);
+}
 
-            transform: translate(-50%, -50%);
 
-            z-index: 3;
-        }
+/* PLAYER CORE */
 
-        #player::after {
-            content: "✦";
+#player::before {
+    content: "";
 
-            position: absolute;
+    position: absolute;
 
-            left: 50%;
-            top: 50%;
+    width: 15px;
+    height: 15px;
 
-            transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
 
-            font-size: 25px;
+    transform: translate(-50%, -50%);
 
-            color: white;
-        }
+    background: white;
 
+    border-radius: 50%;
 
-        /* ENEMY */
+    box-shadow:
+        0 0 10px white,
+        0 0 20px #b987ff;
+}
 
-        .enemy {
-            position: absolute;
 
-            width: 38px;
-            height: 38px;
+/* PLAYER WEAPON */
 
-            background: #ff315a;
+#player::after {
+    content: "";
 
-            border-radius: 50%;
+    position: absolute;
 
-            box-shadow:
-                0 0 18px rgba(255, 49, 90, 0.8);
+    width: 28px;
+    height: 6px;
 
-            transform: translate(-50%, -50%);
+    right: -18px;
+    top: 50%;
 
-            z-index: 2;
-        }
+    transform: translateY(-50%);
 
+    background: #d9c7ff;
 
-        /* BULLET */
+    border-radius: 4px;
 
-        .bullet {
-            position: absolute;
+    box-shadow:
+        0 0 8px #8a3ffc;
+}
 
-            width: 9px;
-            height: 9px;
 
-            background: #fff;
+/* =========================
+   ENEMIES
+========================= */
 
-            border-radius: 50%;
+.enemy {
+    position: absolute;
 
-            box-shadow:
-                0 0 12px white;
+    width: 42px;
+    height: 42px;
 
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-            z-index: 4;
-        }
+    z-index: 4;
 
+    background:
+        linear-gradient(
+            135deg,
+            #ff6a85,
+            #d71945 50%,
+            #650719
+        );
 
-        /* HUD */
+    clip-path: polygon(
+        50% 0%,
+        90% 20%,
+        100% 50%,
+        90% 80%,
+        50% 100%,
+        10% 80%,
+        0% 50%,
+        10% 20%
+    );
 
-        #hud {
+    box-shadow:
+        0 0 10px #ff315a,
+        0 0 25px rgba(255,49,90,0.7);
+}
 
-            position: absolute;
 
-            top: 20px;
-            left: 20px;
+/* ENEMY CORE */
 
-            display: flex;
+.enemy::before {
+    content: "";
 
-            gap: 25px;
+    position: absolute;
 
-            z-index: 8;
+    width: 12px;
+    height: 12px;
 
-            font-size: 16px;
+    left: 50%;
+    top: 50%;
 
-            font-weight: 700;
-        }
+    transform: translate(-50%, -50%);
 
-        .hud-box {
+    background: #ffced8;
 
-            padding: 10px 15px;
+    border-radius: 50%;
 
-            background: rgba(10, 10, 18, 0.85);
+    box-shadow:
+        0 0 8px white,
+        0 0 15px #ff315a;
+}
 
-            border: 1px solid #303044;
 
-            border-radius: 8px;
-        }
+/* =========================
+   BULLET
+========================= */
 
-        #health {
-            color: #ff4d6d;
-        }
+.bullet {
+    position: absolute;
 
-        #score {
-            color: #b987ff;
-        }
+    width: 8px;
+    height: 18px;
 
+    background: white;
 
-        /* INSTRUCTIONS */
+    border-radius: 10px;
 
-        #instructions {
+    box-shadow:
+        0 0 8px white,
+        0 0 18px #a86cff;
 
-            position: absolute;
+    transform: translate(-50%, -50%);
 
-            bottom: 20px;
-            left: 50%;
+    z-index: 6;
+}
 
-            transform: translateX(-50%);
 
-            padding: 10px 18px;
+/* =========================
+   HIT EFFECT
+========================= */
 
-            background: rgba(10, 10, 18, 0.85);
+.hit-effect {
+    position: absolute;
 
-            border: 1px solid #303044;
+    width: 35px;
+    height: 35px;
 
-            border-radius: 8px;
+    border: 3px solid white;
 
-            color: #aaa;
+    border-radius: 50%;
 
-            font-size: 13px;
+    transform: translate(-50%, -50%);
 
-            z-index: 8;
+    pointer-events: none;
 
-            text-align: center;
+    animation: hitExplosion 0.35s ease-out forwards;
 
-        }
+    z-index: 10;
+}
 
+@keyframes hitExplosion {
 
-        /* START SCREEN */
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
 
-        #startScreen,
-        #gameOver {
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.8);
+    }
 
-            position: absolute;
+}
 
-            inset: 0;
 
-            display: flex;
+/* =========================
+   HUD
+========================= */
 
-            align-items: center;
+#hud {
+    position: absolute;
 
-            justify-content: center;
+    top: 20px;
+    left: 20px;
 
-            flex-direction: column;
+    display: flex;
 
-            background: rgba(5, 5, 10, 0.92);
+    gap: 12px;
 
-            z-index: 20;
+    z-index: 12;
 
-            text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+}
 
-        }
+.hud-box {
+    padding: 10px 15px;
 
-        #gameOver {
-            display: none;
-        }
+    background: rgba(8,8,15,0.9);
 
+    border: 1px solid #39334d;
 
-        .screen-title {
+    border-radius: 9px;
 
-            font-size: 55px;
+    backdrop-filter: blur(5px);
+}
 
-            margin-bottom: 10px;
+#health {
+    color: #ff4d6d;
+}
 
-            font-weight: 900;
+#score {
+    color: #b987ff;
+}
 
-        }
 
-        .screen-title span {
-            color: #8a3ffc;
-        }
+/* =========================
+   INSTRUCTIONS
+========================= */
 
-        .screen-text {
+#instructions {
+    position: absolute;
 
-            color: #aaa;
+    bottom: 20px;
+    left: 50%;
 
-            margin-bottom: 30px;
+    transform: translateX(-50%);
 
-        }
+    padding: 10px 18px;
 
+    background: rgba(8,8,15,0.9);
 
-        .start-button {
+    border: 1px solid #39334d;
 
-            padding: 14px 35px;
+    border-radius: 9px;
 
-            background: #8a3ffc;
+    color: #aaa;
 
-            color: white;
+    font-size: 13px;
 
-            border: none;
+    z-index: 12;
 
-            border-radius: 10px;
+    text-align: center;
+}
 
-            font-size: 17px;
 
-            font-weight: 800;
+/* =========================
+   START / GAME OVER
+========================= */
 
-            cursor: pointer;
+#startScreen,
+#gameOver {
+    position: absolute;
 
-        }
+    inset: 0;
 
-        .start-button:hover {
-            background: #a267ff;
-        }
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
 
-        /* MOBILE */
+    flex-direction: column;
 
-        @media (max-width: 600px) {
+    background:
+        radial-gradient(
+            circle,
+            rgba(39,18,70,0.88),
+            rgba(3,3,7,0.97)
+        );
 
-            .top-bar {
-                padding: 0 15px;
-            }
+    z-index: 30;
 
-            .logo {
-                font-size: 19px;
-            }
+    text-align: center;
+}
 
-            .game-title {
-                display: none;
-            }
+#gameOver {
+    display: none;
+}
 
-            #hud {
-                top: 15px;
-                left: 15px;
-                gap: 8px;
-            }
 
-            .hud-box {
-                padding: 8px 10px;
-                font-size: 13px;
-            }
+.screen-title {
+    font-size: clamp(42px, 6vw, 70px);
 
-            #instructions {
-                width: 90%;
-                font-size: 12px;
-            }
+    margin-bottom: 12px;
 
-            .screen-title {
-                font-size: 40px;
-            }
+    font-weight: 900;
 
-        }
+    letter-spacing: -2px;
+}
 
-    </style>
+.screen-title span {
+    color: #8a3ffc;
+}
+
+.screen-text {
+    color: #aaa;
+
+    margin-bottom: 30px;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+.start-button {
+    padding: 15px 38px;
+
+    background: #8a3ffc;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 0 20px rgba(138,63,252,0.3);
+}
+
+.start-button:hover {
+    background: #a267ff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 35px rgba(138,63,252,0.45);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .game-title {
+        display: none;
+    }
+
+    .exit-button {
+        padding: 8px 12px;
+    }
+
+    #hud {
+        top: 15px;
+        left: 15px;
+    }
+
+    .hud-box {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    #instructions {
+        width: 90%;
+
+        font-size: 12px;
+
+        bottom: 15px;
+    }
+
+    .screen-title {
+        font-size: 40px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -382,606 +550,686 @@
 <body>
 
 
-    <!-- TOP BAR -->
+<!-- =========================
+     TOP BAR
+========================= -->
 
-    <div class="top-bar">
+<div class="top-bar">
 
-        <div class="logo">
-            🎮 RAFI<span>GAMING</span>
+    <div class="logo">
+        🎮 RAFI<span>GAMING</span>
+    </div>
+
+    <div class="game-title">
+        CYBER WARRIOR
+    </div>
+
+    <button
+        class="exit-button"
+        onclick="exitGame()">
+
+        ← EXIT
+
+    </button>
+
+</div>
+
+
+<!-- =========================
+     GAME
+========================= -->
+
+<div id="gameArea">
+
+
+    <!-- HUD -->
+
+    <div id="hud">
+
+        <div class="hud-box">
+            ❤️ <span id="health">100</span>
         </div>
 
-        <div class="game-title">
-            CYBER WARRIOR
+        <div class="hud-box">
+            ⭐ <span id="score">0</span>
+        </div>
+
+    </div>
+
+
+    <!-- PLAYER -->
+
+    <div id="player"></div>
+
+
+    <!-- INSTRUCTIONS -->
+
+    <div id="instructions">
+
+        WASD / Arrow Keys = Move
+        &nbsp; • &nbsp;
+        SPACE = Shoot
+
+    </div>
+
+
+    <!-- START SCREEN -->
+
+    <div id="startScreen">
+
+        <div class="screen-title">
+            CYBER <span>WARRIOR</span>
+        </div>
+
+        <div class="screen-text">
+            Survive the enemy attack.
         </div>
 
         <button
-            class="exit-button"
-            onclick="exitGame()">
+            class="start-button"
+            onclick="startGame()">
 
-            ← EXIT
+            START GAME
 
         </button>
 
     </div>
 
 
-    <!-- GAME -->
+    <!-- GAME OVER -->
 
-    <div id="gameArea">
+    <div id="gameOver">
 
+        <div class="screen-title">
+            GAME <span>OVER</span>
+        </div>
 
-        <!-- HUD -->
+        <div class="screen-text">
 
-        <div id="hud">
-
-            <div class="hud-box">
-                ❤️ <span id="health">100</span>
-            </div>
-
-            <div class="hud-box">
-                ⭐ <span id="score">0</span>
-            </div>
+            Final Score:
+            <strong id="finalScore">0</strong>
 
         </div>
 
+        <button
+            class="start-button"
+            onclick="restartGame()">
 
-        <!-- PLAYER -->
+            PLAY AGAIN
 
-        <div id="player"></div>
-
-
-        <!-- INSTRUCTIONS -->
-
-        <div id="instructions">
-
-            WASD / Arrow Keys = Move
-            &nbsp; • &nbsp;
-            SPACE = Shoot
-
-        </div>
-
-
-        <!-- START -->
-
-        <div id="startScreen">
-
-            <div class="screen-title">
-                CYBER <span>WARRIOR</span>
-            </div>
-
-            <div class="screen-text">
-                Survive the enemy attack.
-            </div>
-
-            <button
-                class="start-button"
-                onclick="startGame()">
-
-                START GAME
-
-            </button>
-
-        </div>
-
-
-        <!-- GAME OVER -->
-
-        <div id="gameOver">
-
-            <div class="screen-title">
-                GAME <span>OVER</span>
-            </div>
-
-            <div class="screen-text">
-
-                Final Score:
-                <strong id="finalScore">0</strong>
-
-            </div>
-
-            <button
-                class="start-button"
-                onclick="restartGame()">
-
-                PLAY AGAIN
-
-            </button>
-
-        </div>
-
+        </button>
 
     </div>
 
 
-    <script>
-
-        /* ==========================
-           GAME VARIABLES
-        ========================== */
-
-        const gameArea =
-            document.getElementById("gameArea");
-
-        const player =
-            document.getElementById("player");
-
-        const healthDisplay =
-            document.getElementById("health");
-
-        const scoreDisplay =
-            document.getElementById("score");
-
-        const startScreen =
-            document.getElementById("startScreen");
-
-        const gameOverScreen =
-            document.getElementById("gameOver");
-
-        const finalScore =
-            document.getElementById("finalScore");
+</div>
 
 
-        let playerX = 50;
-        let playerY = 50;
+<script>
 
-        let health = 100;
-        let score = 0;
+/* =========================
+   GAME VARIABLES
+========================= */
 
-        let gameRunning = false;
+const gameArea =
+    document.getElementById("gameArea");
 
-        let keys = {};
+const player =
+    document.getElementById("player");
 
-        let bullets = [];
-        let enemies = [];
+const healthDisplay =
+    document.getElementById("health");
 
-        let lastShot = 0;
+const scoreDisplay =
+    document.getElementById("score");
 
-        let enemyTimer;
+const startScreen =
+    document.getElementById("startScreen");
 
+const gameOverScreen =
+    document.getElementById("gameOver");
 
-        /* ==========================
-           KEYBOARD
-        ========================== */
-
-        document.addEventListener("keydown", function(e) {
-
-            keys[e.key.toLowerCase()] = true;
-
-            if (
-                e.code === "Space" &&
-                gameRunning
-            ) {
-
-                e.preventDefault();
-
-                shoot();
-
-            }
-
-        });
+const finalScore =
+    document.getElementById("finalScore");
 
 
-        document.addEventListener("keyup", function(e) {
+let playerX = 50;
+let playerY = 50;
 
-            keys[e.key.toLowerCase()] = false;
+let health = 100;
+let score = 0;
 
-        });
+let gameRunning = false;
+
+let keys = {};
+
+let bullets = [];
+let enemies = [];
+
+let lastShot = 0;
+
+let enemyTimer;
 
 
-        /* ==========================
-           START GAME
-        ========================== */
+/* =========================
+   KEYBOARD
+========================= */
 
-        function startGame() {
+document.addEventListener("keydown", function(e) {
 
-            startScreen.style.display = "none";
+    keys[e.key.toLowerCase()] = true;
 
-            gameOverScreen.style.display = "none";
+    if (
+        e.code === "Space" &&
+        gameRunning
+    ) {
 
-            health = 100;
-            score = 0;
+        e.preventDefault();
 
-            healthDisplay.textContent = health;
-            scoreDisplay.textContent = score;
+        shoot();
 
-            playerX = 50;
-            playerY = 50;
+    }
 
-            bullets = [];
-            enemies = [];
+});
 
-            document.querySelectorAll(".enemy").forEach(e => e.remove());
-            document.querySelectorAll(".bullet").forEach(e => e.remove());
 
-            gameRunning = true;
+document.addEventListener("keyup", function(e) {
 
-            clearInterval(enemyTimer);
+    keys[e.key.toLowerCase()] = false;
 
-            enemyTimer = setInterval(
-                createEnemy,
-                900
+});
+
+
+/* =========================
+   START GAME
+========================= */
+
+function startGame() {
+
+    startScreen.style.display = "none";
+
+    gameOverScreen.style.display = "none";
+
+    health = 100;
+    score = 0;
+
+    healthDisplay.textContent = health;
+    scoreDisplay.textContent = score;
+
+    playerX = 50;
+    playerY = 50;
+
+    bullets = [];
+    enemies = [];
+
+    document
+        .querySelectorAll(".enemy")
+        .forEach(e => e.remove());
+
+    document
+        .querySelectorAll(".bullet")
+        .forEach(e => e.remove());
+
+    document
+        .querySelectorAll(".hit-effect")
+        .forEach(e => e.remove());
+
+    gameRunning = true;
+
+    clearInterval(enemyTimer);
+
+    enemyTimer = setInterval(
+        createEnemy,
+        900
+    );
+
+    gameLoop();
+
+}
+
+
+/* =========================
+   MOVE PLAYER
+========================= */
+
+function movePlayer() {
+
+    const speed = 0.7;
+
+
+    if (
+        keys["w"] ||
+        keys["arrowup"]
+    ) {
+        playerY -= speed;
+    }
+
+
+    if (
+        keys["s"] ||
+        keys["arrowdown"]
+    ) {
+        playerY += speed;
+    }
+
+
+    if (
+        keys["a"] ||
+        keys["arrowleft"]
+    ) {
+        playerX -= speed;
+    }
+
+
+    if (
+        keys["d"] ||
+        keys["arrowright"]
+    ) {
+        playerX += speed;
+    }
+
+
+    playerX =
+        Math.max(
+            3,
+            Math.min(97, playerX)
+        );
+
+
+    playerY =
+        Math.max(
+            7,
+            Math.min(93, playerY)
+        );
+
+
+    player.style.left =
+        playerX + "%";
+
+    player.style.top =
+        playerY + "%";
+
+}
+
+
+/* =========================
+   SHOOT
+========================= */
+
+function shoot() {
+
+    const now = Date.now();
+
+    if (now - lastShot < 180) {
+        return;
+    }
+
+    lastShot = now;
+
+
+    const bullet =
+        document.createElement("div");
+
+    bullet.className = "bullet";
+
+
+    bullet.style.left =
+        playerX + "%";
+
+    bullet.style.top =
+        playerY + "%";
+
+
+    gameArea.appendChild(bullet);
+
+
+    bullets.push({
+
+        element: bullet,
+
+        x: playerX,
+
+        y: playerY,
+
+        speed: 1.8
+
+    });
+
+}
+
+
+/* =========================
+   CREATE ENEMY
+========================= */
+
+function createEnemy() {
+
+    if (!gameRunning) {
+        return;
+    }
+
+
+    const enemy =
+        document.createElement("div");
+
+    enemy.className = "enemy";
+
+
+    const side =
+        Math.floor(Math.random() * 4);
+
+
+    let x;
+    let y;
+
+
+    if (side === 0) {
+
+        x = Math.random() * 100;
+        y = 5;
+
+    }
+
+    else if (side === 1) {
+
+        x = 95;
+        y = Math.random() * 100;
+
+    }
+
+    else if (side === 2) {
+
+        x = Math.random() * 100;
+        y = 95;
+
+    }
+
+    else {
+
+        x = 5;
+        y = Math.random() * 100;
+
+    }
+
+
+    enemy.style.left =
+        x + "%";
+
+    enemy.style.top =
+        y + "%";
+
+
+    gameArea.appendChild(enemy);
+
+
+    enemies.push({
+
+        element: enemy,
+
+        x: x,
+
+        y: y,
+
+        speed: 0.18
+
+    });
+
+}
+
+
+/* =========================
+   HIT EFFECT
+========================= */
+
+function createHitEffect(x, y) {
+
+    const effect =
+        document.createElement("div");
+
+    effect.className =
+        "hit-effect";
+
+
+    effect.style.left =
+        x + "%";
+
+    effect.style.top =
+        y + "%";
+
+
+    gameArea.appendChild(effect);
+
+
+    setTimeout(function() {
+
+        effect.remove();
+
+    }, 350);
+
+}
+
+
+/* =========================
+   GAME LOOP
+========================= */
+
+function gameLoop() {
+
+    if (!gameRunning) {
+        return;
+    }
+
+
+    movePlayer();
+
+
+    /* BULLETS */
+
+    bullets.forEach((bullet, index) => {
+
+        bullet.y -= bullet.speed;
+
+
+        bullet.element.style.top =
+            bullet.y + "%";
+
+
+        if (bullet.y < -5) {
+
+            bullet.element.remove();
+
+            bullets.splice(index, 1);
+
+        }
+
+    });
+
+
+    /* ENEMIES */
+
+    enemies.forEach((enemy, index) => {
+
+        const dx =
+            playerX - enemy.x;
+
+        const dy =
+            playerY - enemy.y;
+
+
+        const distance =
+            Math.sqrt(
+                dx * dx +
+                dy * dy
             );
 
-            gameLoop();
+
+        if (distance > 0) {
+
+            enemy.x +=
+                (dx / distance) *
+                enemy.speed;
+
+            enemy.y +=
+                (dy / distance) *
+                enemy.speed;
 
         }
 
 
-        /* ==========================
-           PLAYER MOVEMENT
-        ========================== */
+        enemy.element.style.left =
+            enemy.x + "%";
 
-        function movePlayer() {
+        enemy.element.style.top =
+            enemy.y + "%";
 
-            const speed = 0.7;
 
-            if (
-                keys["w"] ||
-                keys["arrowup"]
-            ) {
-                playerY -= speed;
+        /* HIT PLAYER */
+
+        if (distance < 4) {
+
+            createHitEffect(
+                enemy.x,
+                enemy.y
+            );
+
+
+            enemy.element.remove();
+
+            enemies.splice(index, 1);
+
+
+            health -= 10;
+
+            healthDisplay.textContent =
+                health;
+
+
+            if (health <= 0) {
+
+                endGame();
+
             }
 
-            if (
-                keys["s"] ||
-                keys["arrowdown"]
-            ) {
-                playerY += speed;
-            }
+        }
 
-            if (
-                keys["a"] ||
-                keys["arrowleft"]
-            ) {
-                playerX -= speed;
-            }
-
-            if (
-                keys["d"] ||
-                keys["arrowright"]
-            ) {
-                playerX += speed;
-            }
+    });
 
 
-            playerX =
-                Math.max(
-                    2,
-                    Math.min(98, playerX)
+    /* BULLET / ENEMY COLLISION */
+
+    bullets.forEach((bullet, bulletIndex) => {
+
+        enemies.forEach((enemy, enemyIndex) => {
+
+            const dx =
+                bullet.x - enemy.x;
+
+            const dy =
+                bullet.y - enemy.y;
+
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
                 );
 
-            playerY =
-                Math.max(
-                    5,
-                    Math.min(95, playerY)
+
+            if (distance < 3) {
+
+                createHitEffect(
+                    enemy.x,
+                    enemy.y
                 );
 
 
-            player.style.left =
-                playerX + "%";
+                bullet.element.remove();
 
-            player.style.top =
-                playerY + "%";
-
-        }
+                enemy.element.remove();
 
 
-        /* ==========================
-           SHOOT
-        ========================== */
+                bullets.splice(
+                    bulletIndex,
+                    1
+                );
 
-        function shoot() {
 
-            const now = Date.now();
+                enemies.splice(
+                    enemyIndex,
+                    1
+                );
 
-            if (now - lastShot < 180) {
-                return;
+
+                score += 10;
+
+                scoreDisplay.textContent =
+                    score;
+
             }
 
-            lastShot = now;
+        });
 
+    });
 
-            const bullet =
-                document.createElement("div");
 
-            bullet.className = "bullet";
+    requestAnimationFrame(gameLoop);
 
-            bullet.style.left =
-                playerX + "%";
+}
 
-            bullet.style.top =
-                playerY + "%";
 
+/* =========================
+   GAME OVER
+========================= */
 
-            gameArea.appendChild(bullet);
+function endGame() {
 
+    gameRunning = false;
 
-            bullets.push({
+    clearInterval(enemyTimer);
 
-                element: bullet,
+    finalScore.textContent =
+        score;
 
-                x: playerX,
+    gameOverScreen.style.display =
+        "flex";
 
-                y: playerY,
+}
 
-                speed: 1.8
 
-            });
+/* =========================
+   RESTART
+========================= */
 
-        }
+function restartGame() {
 
+    startGame();
 
-        /* ==========================
-           ENEMY
-        ========================== */
+}
 
-        function createEnemy() {
 
-            if (!gameRunning) {
-                return;
-            }
+/* =========================
+   EXIT
+========================= */
 
+function exitGame() {
 
-            const enemy =
-                document.createElement("div");
+    window.location.href =
+        "game.html";
 
-            enemy.className = "enemy";
+}
 
 
-            const side =
-                Math.floor(Math.random() * 4);
+/* =========================
+   INITIAL POSITION
+========================= */
 
+player.style.left =
+    playerX + "%";
 
-            let x;
-            let y;
+player.style.top =
+    playerY + "%";
 
-
-            if (side === 0) {
-                x = Math.random() * 100;
-                y = 5;
-            }
-
-            else if (side === 1) {
-                x = 95;
-                y = Math.random() * 100;
-            }
-
-            else if (side === 2) {
-                x = Math.random() * 100;
-                y = 95;
-            }
-
-            else {
-                x = 5;
-                y = Math.random() * 100;
-            }
-
-
-            enemy.style.left = x + "%";
-            enemy.style.top = y + "%";
-
-
-            gameArea.appendChild(enemy);
-
-
-            enemies.push({
-
-                element: enemy,
-
-                x: x,
-
-                y: y,
-
-                speed: 0.18
-
-            });
-
-        }
-
-
-        /* ==========================
-           GAME LOOP
-        ========================== */
-
-        function gameLoop() {
-
-            if (!gameRunning) {
-                return;
-            }
-
-
-            movePlayer();
-
-
-            /* BULLETS */
-
-            bullets.forEach((bullet, index) => {
-
-                bullet.y -= bullet.speed;
-
-                bullet.element.style.top =
-                    bullet.y + "%";
-
-
-                if (bullet.y < -5) {
-
-                    bullet.element.remove();
-
-                    bullets.splice(index, 1);
-
-                }
-
-            });
-
-
-            /* ENEMIES */
-
-            enemies.forEach((enemy, index) => {
-
-                const dx =
-                    playerX - enemy.x;
-
-                const dy =
-                    playerY - enemy.y;
-
-                const distance =
-                    Math.sqrt(
-                        dx * dx +
-                        dy * dy
-                    );
-
-
-                if (distance > 0) {
-
-                    enemy.x +=
-                        (dx / distance) *
-                        enemy.speed;
-
-                    enemy.y +=
-                        (dy / distance) *
-                        enemy.speed;
-
-                }
-
-
-                enemy.element.style.left =
-                    enemy.x + "%";
-
-                enemy.element.style.top =
-                    enemy.y + "%";
-
-
-                /* HIT PLAYER */
-
-                if (distance < 4) {
-
-                    enemy.element.remove();
-
-                    enemies.splice(index, 1);
-
-                    health -= 10;
-
-                    healthDisplay.textContent =
-                        health;
-
-
-                    if (health <= 0) {
-
-                        endGame();
-
-                    }
-
-                }
-
-            });
-
-
-            /* BULLET / ENEMY COLLISION */
-
-            bullets.forEach((bullet, bulletIndex) => {
-
-                enemies.forEach((enemy, enemyIndex) => {
-
-                    const dx =
-                        bullet.x - enemy.x;
-
-                    const dy =
-                        bullet.y - enemy.y;
-
-                    const distance =
-                        Math.sqrt(
-                            dx * dx +
-                            dy * dy
-                        );
-
-
-                    if (distance < 3) {
-
-                        bullet.element.remove();
-
-                        enemy.element.remove();
-
-                        bullets.splice(
-                            bulletIndex,
-                            1
-                        );
-
-                        enemies.splice(
-                            enemyIndex,
-                            1
-                        );
-
-
-                        score += 10;
-
-                        scoreDisplay.textContent =
-                            score;
-
-                    }
-
-                });
-
-            });
-
-
-            requestAnimationFrame(gameLoop);
-
-        }
-
-
-        /* ==========================
-           GAME OVER
-        ========================== */
-
-        function endGame() {
-
-            gameRunning = false;
-
-            clearInterval(enemyTimer);
-
-            finalScore.textContent =
-                score;
-
-            gameOverScreen.style.display =
-                "flex";
-
-        }
-
-
-        /* ==========================
-           RESTART
-        ========================== */
-
-        function restartGame() {
-
-            startGame();
-
-        }
-
-
-        /* ==========================
-           EXIT
-        ========================== */
-
-        function exitGame() {
-
-            window.location.href =
-                "game.html";
-
-        }
-
-
-        /* ==========================
-           INITIAL POSITION
-        ========================== */
-
-        player.style.left =
-            playerX + "%";
-
-        player.style.top =
-            playerY + "%";
-
-    </script>
+</script>
 
 </body>
 
