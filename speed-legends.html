@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Speed Legends - Rafi Gaming</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050509;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar {
+    height: 70px;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #0b0b12;
+    border-bottom: 1px solid #29293a;
+
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #8a3ffc;
+}
+
+.game-title {
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.exit-button {
+    padding: 9px 16px;
+
+    border: 1px solid #8a3ffc;
+    border-radius: 8px;
+
+    background: transparent;
+    color: white;
+
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.exit-button:hover {
+    background: #8a3ffc;
+}
+
+
+/* =========================
+   GAME AREA
+========================= */
+
+#gameArea {
+    position: relative;
+
+    width: 100vw;
+    height: calc(100vh - 70px);
+
+    overflow: hidden;
+
+    background: #15151a;
+}
+
+
+/* =========================
+   ROAD
+========================= */
+
+#road {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(520px, 90vw);
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #202027,
+            #111116 8%,
+            #111116 92%,
+            #202027
+        );
+
+    border-left: 7px solid #ddd;
+    border-right: 7px solid #ddd;
+
+    overflow: hidden;
+}
+
+
+/* ROAD LINES */
+
+.road-line {
+
+    position: absolute;
+
+    width: 8px;
+    height: 80px;
+
+    background: white;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   PLAYER CAR
+========================= */
+
+#player {
+
+    position: absolute;
+
+    width: 55px;
+    height: 95px;
+
+    bottom: 50px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #46119b,
+            #8a3ffc,
+            #46119b
+        );
+
+    border-radius: 13px 13px 8px 8px;
+
+    box-shadow:
+        0 0 15px #8a3ffc,
+        0 0 30px rgba(138,63,252,0.6);
+
+    z-index: 5;
+}
+
+
+/* CAR WINDOW */
+
+#player::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 28px;
+
+    left: 10px;
+    top: 12px;
+
+    background: #111827;
+
+    border-radius: 7px;
+
+    border: 2px solid #b987ff;
+
+}
+
+
+/* HEADLIGHTS */
+
+#player::after {
+
+    content: "●   ●";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 8px;
+
+    transform: translateX(-50%);
+
+    color: #fff;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* =========================
+   ENEMY CARS
+========================= */
+
+.enemy {
+
+    position: absolute;
+
+    width: 55px;
+    height: 90px;
+
+    border-radius: 12px 12px 8px 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8c1029,
+            #e3264f,
+            #8c1029
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,40,80,0.5);
+
+    z-index: 4;
+}
+
+
+/* ENEMY WINDOW */
+
+.enemy::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 27px;
+
+    left: 10px;
+    top: 12px;
+
+    background: #111827;
+
+    border-radius: 7px;
+
+    border: 2px solid #ff849a;
+
+}
+
+
+/* =========================
+   HUD
+========================= */
+
+#hud {
+
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    display: flex;
+
+    gap: 12px;
+
+    z-index: 10;
+
+}
+
+.hud-box {
+
+    padding: 10px 15px;
+
+    background: rgba(8,8,15,0.9);
+
+    border: 1px solid #39334d;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+}
+
+#score {
+    color: #b987ff;
+}
+
+#speed {
+    color: #ffcc66;
+}
+
+
+/* =========================
+   START / GAME OVER
+========================= */
+
+#startScreen,
+#gameOver {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(39,18,70,0.9),
+            rgba(3,3,7,0.97)
+        );
+
+    z-index: 30;
+
+    text-align: center;
+
+}
+
+#gameOver {
+    display: none;
+}
+
+
+.screen-title {
+
+    font-size: clamp(42px, 6vw, 70px);
+
+    margin-bottom: 12px;
+
+    font-weight: 900;
+
+}
+
+.screen-title span {
+    color: #8a3ffc;
+}
+
+.screen-text {
+
+    color: #aaa;
+
+    margin-bottom: 30px;
+
+}
+
+
+.start-button {
+
+    padding: 15px 38px;
+
+    background: #8a3ffc;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+.start-button:hover {
+
+    background: #a267ff;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .game-title {
+        display: none;
+    }
+
+    #hud {
+        top: 15px;
+        left: 15px;
+    }
+
+    .hud-box {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+    <div class="logo">
+        🎮 RAFI<span>GAMING</span>
+    </div>
+
+    <div class="game-title">
+        SPEED LEGENDS
+    </div>
+
+    <button
+        class="exit-button"
+        onclick="exitGame()">
+
+        ← EXIT
+
+    </button>
+
+</div>
+
+
+<!-- GAME AREA -->
+
+<div id="gameArea">
+
+
+    <!-- HUD -->
+
+    <div id="hud">
+
+        <div class="hud-box">
+            ⭐ SCORE:
+            <span id="score">0</span>
+        </div>
+
+        <div class="hud-box">
+            ⚡ SPEED:
+            <span id="speed">1</span>
+        </div>
+
+    </div>
+
+
+    <!-- ROAD -->
+
+    <div id="road">
+
+        <div
+            class="road-line"
+            id="line1">
+        </div>
+
+        <div
+            class="road-line"
+            id="line2">
+        </div>
+
+        <div
+            class="road-line"
+            id="line3">
+        </div>
+
+        <div
+            class="road-line"
+            id="line4">
+        </div>
+
+
+        <!-- PLAYER -->
+
+        <div id="player"></div>
+
+    </div>
+
+
+    <!-- START SCREEN -->
+
+    <div id="startScreen">
+
+        <div class="screen-title">
+
+            SPEED
+            <span>LEGENDS</span>
+
+        </div>
+
+        <div class="screen-text">
+
+            Dodge traffic and become the fastest driver.
+
+        </div>
+
+        <button
+            class="start-button"
+            onclick="startGame()">
+
+            START RACE
+
+        </button>
+
+    </div>
+
+
+    <!-- GAME OVER -->
+
+    <div id="gameOver">
+
+        <div class="screen-title">
+
+            RACE
+            <span>OVER</span>
+
+        </div>
+
+        <div class="screen-text">
+
+            Final Score:
+            <strong id="finalScore">0</strong>
+
+        </div>
+
+        <button
+            class="start-button"
+            onclick="restartGame()">
+
+            RACE AGAIN
+
+        </button>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+const gameArea =
+    document.getElementById("gameArea");
+
+const road =
+    document.getElementById("road");
+
+const player =
+    document.getElementById("player");
+
+const scoreDisplay =
+    document.getElementById("score");
+
+const speedDisplay =
+    document.getElementById("speed");
+
+const startScreen =
+    document.getElementById("startScreen");
+
+const gameOver =
+    document.getElementById("gameOver");
+
+const finalScore =
+    document.getElementById("finalScore");
+
+
+let playerX = 50;
+
+let score = 0;
+
+let speed = 1;
+
+let gameRunning = false;
+
+let keys = {};
+
+let enemies = [];
+
+let roadLines = [];
+
+let enemyTimer;
+
+let animation;
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(e) {
+
+        keys[e.key.toLowerCase()] = true;
+
+    }
+);
+
+
+document.addEventListener(
+    "keyup",
+    function(e) {
+
+        keys[e.key.toLowerCase()] = false;
+
+    }
+);
+
+
+/* =========================
+   START GAME
+========================= */
+
+function startGame() {
+
+    startScreen.style.display = "none";
+
+    gameOver.style.display = "none";
+
+
+    score = 0;
+
+    speed = 1;
+
+    playerX = 50;
+
+
+    scoreDisplay.textContent =
+        score;
+
+    speedDisplay.textContent =
+        speed;
+
+
+    enemies = [];
+
+
+    document
+        .querySelectorAll(".enemy")
+        .forEach(e => e.remove());
+
+
+    gameRunning = true;
+
+
+    clearInterval(enemyTimer);
+
+
+    enemyTimer =
+        setInterval(
+            createEnemy,
+            1100
+        );
+
+
+    createRoadLines();
+
+
+    gameLoop();
+
+}
+
+
+/* =========================
+   ROAD LINES
+========================= */
+
+function createRoadLines() {
+
+    roadLines = [];
+
+
+    const lines =
+        document.querySelectorAll(
+            ".road-line"
+        );
+
+
+    lines.forEach(
+        function(line, index) {
+
+            let y =
+                index * 200 - 100;
+
+            line.style.top =
+                y + "px";
+
+
+            roadLines.push({
+                element: line,
+                y: y
+            });
+
+        }
+    );
+
+}
+
+
+/* =========================
+   MOVE PLAYER
+========================= */
+
+function movePlayer() {
+
+    const movement =
+        0.9;
+
+
+    if (
+        keys["a"] ||
+        keys["arrowleft"]
+    ) {
+
+        playerX -= movement;
+
+    }
+
+
+    if (
+        keys["d"] ||
+        keys["arrowright"]
+    ) {
+
+        playerX += movement;
+
+    }
+
+
+    playerX =
+        Math.max(
+            12,
+            Math.min(
+                88,
+                playerX
+            )
+        );
+
+
+    player.style.left =
+        playerX + "%";
+
+}
+
+
+/* =========================
+   CREATE ENEMY
+========================= */
+
+function createEnemy() {
+
+    if (!gameRunning) {
+        return;
+    }
+
+
+    const enemy =
+        document.createElement("div");
+
+    enemy.className =
+        "enemy";
+
+
+    const lanes =
+        [20, 35, 50, 65, 80];
+
+
+    const lane =
+        lanes[
+            Math.floor(
+                Math.random() *
+                lanes.length
+            )
+        ];
+
+
+    enemy.style.left =
+        lane + "%";
+
+    enemy.style.top =
+        "-120px";
+
+
+    road.appendChild(enemy);
+
+
+    enemies.push({
+
+        element: enemy,
+
+        x: lane,
+
+        y: -120
+
+    });
+
+}
+
+
+/* =========================
+   GAME LOOP
+========================= */
+
+function gameLoop() {
+
+    if (!gameRunning) {
+        return;
+    }
+
+
+    movePlayer();
+
+
+    /* ROAD */
+
+    roadLines.forEach(
+        function(line) {
+
+            line.y +=
+                5 * speed;
+
+
+            if (line.y > road.offsetHeight) {
+
+                line.y = -100;
+
+            }
+
+
+            line.element.style.top =
+                line.y + "px";
+
+        }
+    );
+
+
+    /* ENEMIES */
+
+    enemies.forEach(
+        function(enemy, index) {
+
+            enemy.y +=
+                4 * speed;
+
+
+            enemy.element.style.top =
+                enemy.y + "px";
+
+
+            /* SCORE */
+
+            if (enemy.y > road.offsetHeight) {
+
+                enemy.element.remove();
+
+                enemies.splice(
+                    index,
+                    1
+                );
+
+                score += 10;
+
+                scoreDisplay.textContent =
+                    score;
+
+
+                /* SPEED INCREASE */
+
+                if (
+                    score % 100 === 0
+                ) {
+
+                    speed += 0.2;
+
+                    speedDisplay.textContent =
+                        speed.toFixed(1);
+
+                }
+
+            }
+
+
+            /* COLLISION */
+
+            const playerRect =
+                player.getBoundingClientRect();
+
+            const enemyRect =
+                enemy.element.getBoundingClientRect();
+
+
+            if (
+                playerRect.left <
+                    enemyRect.right &&
+
+                playerRect.right >
+                    enemyRect.left &&
+
+                playerRect.top <
+                    enemyRect.bottom &&
+
+                playerRect.bottom >
+                    enemyRect.top
+            ) {
+
+                endGame();
+
+            }
+
+        }
+    );
+
+
+    animation =
+        requestAnimationFrame(
+            gameLoop
+        );
+
+}
+
+
+/* =========================
+   GAME OVER
+========================= */
+
+function endGame() {
+
+    gameRunning = false;
+
+    clearInterval(enemyTimer);
+
+    cancelAnimationFrame(animation);
+
+
+    finalScore.textContent =
+        score;
+
+
+    gameOver.style.display =
+        "flex";
+
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartGame() {
+
+    startGame();
+
+}
+
+
+/* =========================
+   EXIT
+========================= */
+
+function exitGame() {
+
+    window.location.href =
+        "speed.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
