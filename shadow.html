@@ -2,43 +2,109 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Shadow Realm - Rafi Gaming</title>
 
-    <link rel="stylesheet" href="style.css">
-
     <style>
 
-        /* =========================
-           SHADOW REALM DETAILS
-        ========================= */
-
-        body {
-            background: #07070a;
-            color: white;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .shadow-page {
+        body {
+            background: #07070b;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 40px;
+
+            background: rgba(7, 7, 11, 0.95);
+
+            border-bottom: 1px solid #27202f;
+
+            z-index: 9999;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8b3dff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #9b63ff;
+        }
+
+        .menu-btn {
+            display: none;
+
+            background: transparent;
+            color: white;
+
+            border: none;
+
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .page {
             min-height: 100vh;
 
-            padding: 120px 25px 80px;
+            padding: 125px 30px 70px;
 
             background:
                 radial-gradient(
                     circle at 50% 30%,
-                    #241044 0%,
-                    #0e0718 40%,
-                    #07070a 75%
+                    #291044 0%,
+                    #11081d 40%,
+                    #07070b 75%
                 );
         }
 
-        .shadow-container {
-
+        .container {
             max-width: 1200px;
 
             margin: auto;
@@ -52,77 +118,77 @@
             align-items: center;
         }
 
-
         /* =========================
            IMAGE
         ========================= */
 
-        .shadow-image {
+        .game-image {
+            width: 100%;
+
+            height: 520px;
 
             border-radius: 20px;
 
             overflow: hidden;
 
-            border: 1px solid #7138c9;
+            border: 2px solid #7138c9;
 
             box-shadow:
-                0 0 40px rgba(124, 60, 255, 0.25);
+                0 0 35px rgba(124, 60, 255, 0.25);
         }
 
-        .shadow-image img {
-
+        .game-image img {
             width: 100%;
-
-            height: 520px;
+            height: 100%;
 
             object-fit: cover;
 
             display: block;
         }
 
-
         /* =========================
            CONTENT
         ========================= */
 
-        .shadow-content {
-
+        .content {
             padding: 10px;
         }
 
+        /* BACK BUTTON */
+
         .back-button {
-
             display: inline-block;
-
-            margin-bottom: 30px;
 
             padding: 10px 18px;
 
-            border: 1px solid #7c3cff;
-
-            border-radius: 8px;
+            margin-bottom: 35px;
 
             color: white;
 
             text-decoration: none;
 
+            border: 1px solid #7c3cff;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
             font-weight: bold;
 
-            transition: 0.25s;
+            transition: 0.2s;
         }
 
         .back-button:hover {
-
             background: #7c3cff;
 
             box-shadow:
-                0 0 20px rgba(124, 60, 255, 0.6);
+                0 0 20px rgba(124, 60, 255, 0.5);
         }
 
+        /* FEATURED */
 
         .featured {
-
-            color: #9b6cff;
+            color: #9b63ff;
 
             font-size: 13px;
 
@@ -130,104 +196,114 @@
 
             letter-spacing: 4px;
 
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
+        /* TITLE */
 
-        .shadow-content h1 {
-
+        h1 {
             font-size: 64px;
 
             line-height: 1;
 
-            margin: 10px 0 20px;
+            margin-bottom: 20px;
         }
 
-        .shadow-content h1 span {
-
-            color: #8b5cf6;
+        h1 span {
+            color: #8b3dff;
         }
 
+        /* RATING */
 
         .rating {
-
-            font-size: 21px;
+            font-size: 20px;
 
             margin-bottom: 25px;
         }
 
+        /* DESCRIPTION */
 
         .description {
-
             color: #aaa;
 
-            font-size: 18px;
+            font-size: 17px;
 
             line-height: 1.7;
 
             margin-bottom: 25px;
         }
 
-
         /* =========================
-           INFO
+           GAME INFO
         ========================= */
 
-        .game-info {
-
-            margin: 25px 0;
+        .info {
+            margin-bottom: 25px;
         }
 
-        .game-info p {
-
+        .info p {
             color: #ccc;
 
-            margin: 12px 0;
+            margin: 10px 0;
+
+            font-size: 15px;
         }
 
-        .game-info strong {
-
+        .info strong {
             color: white;
         }
-
 
         /* =========================
            PLAY BUTTON
         ========================= */
 
         .play-button {
-
             display: inline-block;
-
-            margin-top: 15px;
 
             padding: 15px 35px;
 
-            background: #7c3cff;
+            background: #813cff;
 
             color: white;
 
             text-decoration: none;
 
-            border-radius: 8px;
+            border-radius: 9px;
 
             font-size: 16px;
 
             font-weight: bold;
 
-            transition: 0.25s;
+            box-shadow:
+                0 0 20px rgba(129, 60, 255, 0.25);
+
+            transition: 0.2s;
         }
 
         .play-button:hover {
-
-            background: #9b6cff;
+            background: #9b63ff;
 
             transform: translateY(-3px);
 
             box-shadow:
-                0 0 25px rgba(124, 60, 255, 0.7);
+                0 0 30px rgba(129, 60, 255, 0.55);
         }
 
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            background: #050507;
+
+            color: #777;
+
+            border-top: 1px solid #222;
+        }
 
         /* =========================
            MOBILE
@@ -235,35 +311,68 @@
 
         @media (max-width: 800px) {
 
-            .shadow-page {
-
-                padding: 110px 15px 60px;
+            .navbar {
+                padding: 0 20px;
             }
 
-            .shadow-container {
+            .nav-links {
+                display: none;
 
+                position: absolute;
+
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                background: #0b0b10;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                border-bottom: 1px solid #29202f;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 18px;
+
+                text-align: center;
+
+                border-bottom: 1px solid #222;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .page {
+                padding: 110px 15px 50px;
+            }
+
+            .container {
                 grid-template-columns: 1fr;
 
                 gap: 35px;
             }
 
-            .shadow-image img {
-
+            .game-image {
                 height: 350px;
             }
 
-            .shadow-content h1 {
-
+            h1 {
                 font-size: 45px;
             }
 
             .description {
-
                 font-size: 16px;
             }
 
             .play-button {
-
                 width: 100%;
 
                 text-align: center;
@@ -283,76 +392,76 @@
          NAVIGATION
     ========================= -->
 
-    <header>
+    <nav class="navbar">
 
-        <nav class="navbar">
-
-            <div class="logo">
-                🎮 RAFI<span>GAMING</span>
-            </div>
+        <div class="logo">
+            🎮 RAFI<span>GAMING</span>
+        </div>
 
 
-            <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
 
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
 
-                <li>
-                    <a href="games.html">
-                        Games
-                    </a>
-                </li>
+            <li>
+                <a href="games.html">
+                    Games
+                </a>
+            </li>
 
-                <li>
-                    <a href="about.html">
-                        About
-                    </a>
-                </li>
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
 
-            </ul>
+        </ul>
 
 
-            <button
-                class="menu-btn"
-                onclick="toggleMenu()">
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()">
 
-                ☰
+            ☰
 
-            </button>
+        </button>
 
-        </nav>
-
-    </header>
+    </nav>
 
 
 
     <!-- =========================
-         SHADOW REALM
+         SHADOW REALM PAGE
     ========================= -->
 
-    <main class="shadow-page">
+    <main class="page">
 
-        <div class="shadow-container">
+        <div class="container">
 
 
-            <!-- IMAGE -->
+            <!-- =========================
+                 IMAGE
+            ========================= -->
 
-            <div class="shadow-image">
+            <div class="game-image">
 
                 <img
-                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80"
+                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
                     alt="Shadow Realm">
 
             </div>
 
 
 
-            <!-- CONTENT -->
+            <!-- =========================
+                 CONTENT
+            ========================= -->
 
-            <div class="shadow-content">
+            <div class="content">
 
 
                 <!-- BACK -->
@@ -366,12 +475,16 @@
                 </a>
 
 
+                <!-- FEATURED -->
+
                 <div class="featured">
 
                     FEATURED GAME
 
                 </div>
 
+
+                <!-- TITLE -->
 
                 <h1>
 
@@ -381,6 +494,8 @@
                 </h1>
 
 
+                <!-- RATING -->
+
                 <div class="rating">
 
                     ⭐ 9.5 / 10
@@ -388,22 +503,24 @@
                 </div>
 
 
+                <!-- DESCRIPTION -->
+
                 <p class="description">
 
-                    Enter the Shadow Realm and survive
-                    against mysterious enemies lurking
-                    in the darkness.
+                    Enter the mysterious Shadow Realm
+                    and survive against dangerous enemies
+                    that emerge from the darkness.
 
-                    Move through the arena, defeat the
-                    shadows and survive for as long as
-                    possible.
+                    Move around the arena, defeat enemies,
+                    increase your score and survive for as
+                    long as possible.
 
                 </p>
 
 
-                <!-- GAME INFORMATION -->
+                <!-- INFORMATION -->
 
-                <div class="game-info">
+                <div class="info">
 
                     <p>
                         <strong>Genre:</strong>
@@ -428,7 +545,9 @@
                 </div>
 
 
-                <!-- PLAY GAME -->
+                <!-- =========================
+                     PLAY GAME
+                ========================= -->
 
                 <a
                     href="shadow-game.html"
@@ -469,7 +588,7 @@
         function toggleMenu() {
 
             const menu =
-                document.querySelector(".nav-links");
+                document.getElementById("navLinks");
 
             menu.classList.toggle("active");
 
