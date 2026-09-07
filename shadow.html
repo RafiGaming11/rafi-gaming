@@ -2,115 +2,482 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Shadow Realm - Rafi Gaming</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           SHADOW REALM DETAILS
+        ========================= */
+
+        body {
+            background: #07070a;
+            color: white;
+        }
+
+        .shadow-page {
+            min-height: 100vh;
+
+            padding: 120px 25px 80px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    #241044 0%,
+                    #0e0718 40%,
+                    #07070a 75%
+                );
+        }
+
+        .shadow-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .shadow-image {
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            border: 1px solid #7138c9;
+
+            box-shadow:
+                0 0 40px rgba(124, 60, 255, 0.25);
+        }
+
+        .shadow-image img {
+
+            width: 100%;
+
+            height: 520px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .shadow-content {
+
+            padding: 10px;
+        }
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-bottom: 30px;
+
+            padding: 10px 18px;
+
+            border: 1px solid #7c3cff;
+
+            border-radius: 8px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.25s;
+        }
+
+        .back-button:hover {
+
+            background: #7c3cff;
+
+            box-shadow:
+                0 0 20px rgba(124, 60, 255, 0.6);
+        }
+
+
+        .featured {
+
+            color: #9b6cff;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .shadow-content h1 {
+
+            font-size: 64px;
+
+            line-height: 1;
+
+            margin: 10px 0 20px;
+        }
+
+        .shadow-content h1 span {
+
+            color: #8b5cf6;
+        }
+
+
+        .rating {
+
+            font-size: 21px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .description {
+
+            color: #aaa;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .game-info {
+
+            margin: 25px 0;
+        }
+
+        .game-info p {
+
+            color: #ccc;
+
+            margin: 12px 0;
+        }
+
+        .game-info strong {
+
+            color: white;
+        }
+
+
+        /* =========================
+           PLAY BUTTON
+        ========================= */
+
+        .play-button {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 15px 35px;
+
+            background: #7c3cff;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            transition: 0.25s;
+        }
+
+        .play-button:hover {
+
+            background: #9b6cff;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 25px rgba(124, 60, 255, 0.7);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .shadow-page {
+
+                padding: 110px 15px 60px;
+            }
+
+            .shadow-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+            .shadow-image img {
+
+                height: 350px;
+            }
+
+            .shadow-content h1 {
+
+                font-size: 45px;
+            }
+
+            .description {
+
+                font-size: 16px;
+            }
+
+            .play-button {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<header>
 
-    <nav class="navbar">
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
-        <div class="logo">
-            🎮 RAFI<span>GAMING</span>
-        </div>
+    <header>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
+        <nav class="navbar">
 
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-    </nav>
-
-</header>
-
-
-<main>
-
-    <section class="game-details">
-
-        <div class="details-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23"
-                alt="Shadow Realm">
-
-        </div>
-
-
-        <div class="details-content">
-
-            <a href="games.html" class="back-button">
-                ← BACK TO GAMES
-            </a>
-
-            <p class="section-small">
-                FEATURED GAME
-            </p>
-
-            <h1>
-                SHADOW <span>REALM</span>
-            </h1>
-
-            <div class="details-rating">
-                ⭐ 9.5 / 10
+            <div class="logo">
+                🎮 RAFI<span>GAMING</span>
             </div>
 
-            <p>
-                Enter a mysterious fantasy world filled with
-                ancient powers, dangerous creatures and hidden
-                secrets. Explore the Shadow Realm and discover
-                your destiny.
-            </p>
 
-            <div class="game-info-list">
+            <ul class="nav-links">
 
-                <p>
-                    <strong>⚔️ Genre:</strong>
-                    RPG • Fantasy
-                </p>
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
 
-                <p>
-                    <strong>👤 Mode:</strong>
-                    Single Player
-                </p>
+                <li>
+                    <a href="games.html">
+                        Games
+                    </a>
+                </li>
 
-                <p>
-                    <strong>💻 Platform:</strong>
-                    PC
-                </p>
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
 
-            </div>
+            </ul>
 
-            <button onclick="alert('Game coming soon!')">
-                PLAY GAME
+
+            <button
+                class="menu-btn"
+                onclick="toggleMenu()">
+
+                ☰
+
             </button>
 
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         SHADOW REALM
+    ========================= -->
+
+    <main class="shadow-page">
+
+        <div class="shadow-container">
+
+
+            <!-- IMAGE -->
+
+            <div class="shadow-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80"
+                    alt="Shadow Realm">
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div class="shadow-content">
+
+
+                <!-- BACK -->
+
+                <a
+                    href="games.html"
+                    class="back-button">
+
+                    ← BACK TO GAMES
+
+                </a>
+
+
+                <div class="featured">
+
+                    FEATURED GAME
+
+                </div>
+
+
+                <h1>
+
+                    SHADOW
+                    <span>REALM</span>
+
+                </h1>
+
+
+                <div class="rating">
+
+                    ⭐ 9.5 / 10
+
+                </div>
+
+
+                <p class="description">
+
+                    Enter the Shadow Realm and survive
+                    against mysterious enemies lurking
+                    in the darkness.
+
+                    Move through the arena, defeat the
+                    shadows and survive for as long as
+                    possible.
+
+                </p>
+
+
+                <!-- GAME INFORMATION -->
+
+                <div class="game-info">
+
+                    <p>
+                        <strong>Genre:</strong>
+                        Action / Survival
+                    </p>
+
+                    <p>
+                        <strong>Mode:</strong>
+                        Single Player
+                    </p>
+
+                    <p>
+                        <strong>Controls:</strong>
+                        W A S D + SPACE
+                    </p>
+
+                    <p>
+                        <strong>Difficulty:</strong>
+                        ⭐⭐⭐⭐
+                    </p>
+
+                </div>
+
+
+                <!-- PLAY GAME -->
+
+                <a
+                    href="shadow-game.html"
+                    class="play-button">
+
+                    ▶ PLAY GAME
+
+                </a>
+
+
+            </div>
+
         </div>
 
-    </section>
-
-</main>
+    </main>
 
 
-<footer>
 
-    <p>
-        © 2026 Rafi Gaming. All Rights Reserved.
-    </p>
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
-</footer>
+    <footer>
+
+        © 2026 Rafi Gaming.
+        All Rights Reserved.
+
+    </footer>
 
 
-<script src="script.js"></script>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        function toggleMenu() {
+
+            const menu =
+                document.querySelector(".nav-links");
+
+            menu.classList.toggle("active");
+
+        }
+
+    </script>
+
 
 </body>
+
 </html>
