@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shadow Realm - Rafi Gaming</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #050509;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .game-header {
+            position: relative;
+            padding: 25px 90px 25px 25px;
+            border-bottom: 1px solid #272033;
+        }
+
+        .game-header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .game-header span {
+            color: #8b3dff;
+        }
+
+        .game-header p {
+            color: #aaa;
+        }
+
+        /* =========================
+           EXIT BUTTON
+        ========================= */
+
+        .exit-game {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+
+            padding: 10px 18px;
+
+            background: #8b3dff;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            box-shadow: 0 0 15px rgba(139, 61, 255, 0.4);
+
+            z-index: 9999;
+        }
+
+        .exit-game:hover {
+            background: #6f20e8;
+        }
+
+        /* =========================
+           GAME AREA
+        ========================= */
+
+        .game-area {
+            width: 900px;
+            max-width: 95%;
+
+            height: 600px;
+
+            margin: 35px auto;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at center,
+                #251238 0%,
+                #10091b 45%,
+                #050509 100%);
+
+            border: 2px solid #7d35ff;
+            border-radius: 18px;
+
+            box-shadow:
+                0 0 35px rgba(125, 53, 255, 0.2);
+        }
+
+        /* =========================
+           ARENA
+        ========================= */
+
+        .arena {
+            position: absolute;
+
+            inset: 50px;
+
+            border: 2px solid rgba(139, 61, 255, 0.25);
+
+            border-radius: 20px;
+        }
+
+        /* =========================
+           PLAYER
+        ========================= */
+
+        .player {
+            position: absolute;
+
+            width: 45px;
+            height: 45px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background: #8b3dff;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 20px #8b3dff,
+                0 0 45px rgba(139, 61, 255, 0.5);
+
+            z-index: 10;
+        }
+
+        .player::after {
+            content: "";
+
+            position: absolute;
+
+            width: 15px;
+            height: 15px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            top: 8px;
+            left: 15px;
+        }
+
+        /* =========================
+           ENEMY
+        ========================= */
+
+        .enemy {
+            position: absolute;
+
+            width: 38px;
+            height: 38px;
+
+            background: #ff315c;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 18px rgba(255, 49, 92, 0.8);
+
+            z-index: 8;
+        }
+
+        .enemy::before {
+            content: "";
+
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            top: 8px;
+            left: 7px;
+
+            box-shadow: 15px 0 white;
+        }
+
+        /* =========================
+           SWORD
+        ========================= */
+
+        .attack {
+            position: absolute;
+
+            width: 60px;
+            height: 8px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            transform-origin: left center;
+
+            z-index: 12;
+
+            display: none;
+
+            box-shadow:
+                0 0 12px white;
+        }
+
+        /* =========================
+           SCORE
+        ========================= */
+
+        .score {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            padding: 10px 16px;
+
+            background: rgba(0, 0, 0, 0.7);
+
+            border-radius: 10px;
+
+            font-size: 18px;
+
+            z-index: 50;
+        }
+
+        /* =========================
+           HEALTH
+        ========================= */
+
+        .health {
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            padding: 10px 16px;
+
+            background: rgba(0, 0, 0, 0.7);
+
+            border-radius: 10px;
+
+            font-size: 18px;
+
+            z-index: 50;
+        }
+
+        /* =========================
+           START / GAME OVER
+        ========================= */
+
+        .start-screen,
+        .game-over {
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.9);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            z-index: 100;
+        }
+
+        .game-over {
+            display: none;
+        }
+
+        .start-screen h2,
+        .game-over h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .start-screen p,
+        .game-over p {
+            color: #bbb;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        button {
+            background: #813cff;
+
+            color: white;
+
+            border: none;
+
+            padding: 14px 30px;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #9b63ff;
+        }
+
+        /* =========================
+           INSTRUCTIONS
+        ========================= */
+
+        .instructions {
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .game-header {
+                padding: 75px 15px 20px;
+            }
+
+            .game-header h1 {
+                font-size: 27px;
+            }
+
+            .exit-game {
+                top: 15px;
+                right: 15px;
+
+                padding: 9px 13px;
+
+                font-size: 13px;
+            }
+
+            .game-area {
+                height: 500px;
+            }
+
+            .arena {
+                inset: 35px;
+            }
+
+            .instructions {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <div class="game-header">
+
+        <a href="games.html" class="exit-game">
+            ← EXIT GAME
+        </a>
+
+        <h1>
+            SHADOW <span>REALM</span>
+        </h1>
+
+        <p>
+            🌑 Defeat the shadows and survive!
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         GAME
+    ========================= -->
+
+    <div class="game-area">
+
+        <div class="arena"></div>
+
+
+        <!-- SCORE -->
+
+        <div class="score">
+            ⭐ Score:
+            <span id="score">0</span>
+        </div>
+
+
+        <!-- HEALTH -->
+
+        <div class="health">
+            ❤️
+            <span id="health">3</span>
+        </div>
+
+
+        <!-- PLAYER -->
+
+        <div
+            class="player"
+            id="player">
+        </div>
+
+
+        <!-- ATTACK -->
+
+        <div
+            class="attack"
+            id="attack">
+        </div>
+
+
+        <!-- ENEMY -->
+
+        <div
+            class="enemy"
+            id="enemy">
+        </div>
+
+
+        <!-- =========================
+             START SCREEN
+        ========================= -->
+
+        <div
+            class="start-screen"
+            id="startScreen">
+
+            <h2>
+                🌑 SHADOW REALM
+            </h2>
+
+            <p>
+                Move with W A S D
+            </p>
+
+            <p>
+                Press SPACE to attack
+            </p>
+
+            <button onclick="startGame()">
+                START GAME
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             GAME OVER
+        ========================= -->
+
+        <div
+            class="game-over"
+            id="gameOver">
+
+            <h2>
+                💀 GAME OVER
+            </h2>
+
+            <p>
+                Your Score:
+                <span id="finalScore">0</span>
+            </p>
+
+            <button onclick="startGame()">
+                PLAY AGAIN
+            </button>
+
+            <a
+                href="games.html"
+                style="
+                    display:inline-block;
+                    margin-top:12px;
+                    padding:10px 20px;
+                    border:1px solid #813cff;
+                    border-radius:8px;
+                    color:white;
+                    text-decoration:none;
+                    font-weight:bold;
+                ">
+
+                ← BACK TO GAMES
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <p class="instructions">
+
+        ⌨️ Move:
+        W A S D
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        ⚔️ Attack:
+        SPACE
+
+    </p>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const player =
+            document.getElementById("player");
+
+        const enemy =
+            document.getElementById("enemy");
+
+        const attack =
+            document.getElementById("attack");
+
+        const scoreText =
+            document.getElementById("score");
+
+        const healthText =
+            document.getElementById("health");
+
+        const finalScore =
+            document.getElementById("finalScore");
+
+        const startScreen =
+            document.getElementById("startScreen");
+
+        const gameOver =
+            document.getElementById("gameOver");
+
+
+        let playerX = 50;
+        let playerY = 50;
+
+        let enemyX = 10;
+        let enemyY = 10;
+
+        let score = 0;
+        let health = 3;
+
+        let gameRunning = false;
+
+        let enemySpeed = 0.12;
+
+        let attacking = false;
+
+
+        /* =========================
+           START GAME
+        ========================= */
+
+        function startGame() {
+
+            score = 0;
+
+            health = 3;
+
+            playerX = 50;
+            playerY = 50;
+
+            enemySpeed = 0.12;
+
+            gameRunning = true;
+
+            scoreText.textContent = score;
+
+            healthText.textContent = health;
+
+            startScreen.style.display = "none";
+
+            gameOver.style.display = "none";
+
+            player.style.left =
+                playerX + "%";
+
+            player.style.top =
+                playerY + "%";
+
+            resetEnemy();
+
+            requestAnimationFrame(gameLoop);
+
+        }
+
+
+        /* =========================
+           RESET ENEMY
+        ========================= */
+
+        function resetEnemy() {
+
+            const side =
+                Math.floor(Math.random() * 4);
+
+            if (side === 0) {
+
+                enemyX = 10;
+                enemyY =
+                    15 + Math.random() * 70;
+
+            }
+
+            else if (side === 1) {
+
+                enemyX = 90;
+                enemyY =
+                    15 + Math.random() * 70;
+
+            }
+
+            else if (side === 2) {
+
+                enemyX =
+                    15 + Math.random() * 70;
+
+                enemyY = 10;
+
+            }
+
+            else {
+
+                enemyX =
+                    15 + Math.random() * 70;
+
+                enemyY = 90;
+
+            }
+
+            enemy.style.left =
+                enemyX + "%";
+
+            enemy.style.top =
+                enemyY + "%";
+
+        }
+
+
+        /* =========================
+           GAME LOOP
+        ========================= */
+
+        function gameLoop() {
+
+            if (!gameRunning) {
+                return;
+            }
+
+
+            /* ENEMY MOVE */
+
+            const dx =
+                playerX - enemyX;
+
+            const dy =
+                playerY - enemyY;
+
+            const distance =
+                Math.sqrt(dx * dx + dy * dy);
+
+
+            if (distance > 0) {
+
+                enemyX +=
+                    (dx / distance) *
+                    enemySpeed;
+
+                enemyY +=
+                    (dy / distance) *
+                    enemySpeed;
+
+            }
+
+
+            enemy.style.left =
+                enemyX + "%";
+
+            enemy.style.top =
+                enemyY + "%";
+
+
+            /* ENEMY TOUCH */
+
+            if (distance < 7) {
+
+                health--;
+
+                healthText.textContent =
+                    health;
+
+                resetEnemy();
+
+                if (health <= 0) {
+
+                    endGame();
+
+                    return;
+
+                }
+
+            }
+
+
+            /* ATTACK */
+
+            if (attacking) {
+
+                const attackDistance =
+                    Math.sqrt(
+                        Math.pow(playerX - enemyX, 2) +
+                        Math.pow(playerY - enemyY, 2)
+                    );
+
+                if (attackDistance < 15) {
+
+                    score++;
+
+                    scoreText.textContent =
+                        score;
+
+                    enemySpeed += 0.01;
+
+                    resetEnemy();
+
+                    attacking = false;
+
+                    attack.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            requestAnimationFrame(gameLoop);
+
+        }
+
+
+        /* =========================
+           ATTACK
+        ========================= */
+
+        function doAttack() {
+
+            if (!gameRunning || attacking) {
+                return;
+            }
+
+            attacking = true;
+
+            attack.style.display =
+                "block";
+
+            attack.style.left =
+                playerX + "%";
+
+            attack.style.top =
+                playerY + "%";
+
+            attack.style.transform =
+                "translateY(-50%) rotate(0deg)";
+
+            setTimeout(function() {
+
+                attacking = false;
+
+                attack.style.display =
+                    "none";
+
+            }, 180);
+
+        }
+
+
+        /* =========================
+           GAME OVER
+        ========================= */
+
+        function endGame() {
+
+            gameRunning = false;
+
+            finalScore.textContent =
+                score;
+
+            gameOver.style.display =
+                "flex";
+
+        }
+
+
+        /* =========================
+           KEYBOARD
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (!gameRunning) {
+                    return;
+                }
+
+
+                const key =
+                    event.key.toLowerCase();
+
+
+                /* LEFT */
+
+                if (key === "a") {
+
+                    playerX -= 3;
+
+                }
+
+
+                /* RIGHT */
+
+                if (key === "d") {
+
+                    playerX += 3;
+
+                }
+
+
+                /* UP */
+
+                if (key === "w") {
+
+                    playerY -= 3;
+
+                }
+
+
+                /* DOWN */
+
+                if (key === "s") {
+
+                    playerY += 3;
+
+                }
+
+
+                /* ATTACK */
+
+                if (event.code === "Space") {
+
+                    event.preventDefault();
+
+                    doAttack();
+
+                }
+
+
+                /* LIMIT */
+
+                if (playerX < 15) {
+                    playerX = 15;
+                }
+
+                if (playerX > 85) {
+                    playerX = 85;
+                }
+
+                if (playerY < 15) {
+                    playerY = 15;
+                }
+
+                if (playerY > 85) {
+                    playerY = 85;
+                }
+
+
+                player.style.left =
+                    playerX + "%";
+
+                player.style.top =
+                    playerY + "%";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
